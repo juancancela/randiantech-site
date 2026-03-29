@@ -1,0 +1,29 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+---
+
+<Layout title={`Política de Privacidad | ${SITE.title}`}>
+  <Header />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container pt-6 pb-16">
+      <div class="section-label mb-3">Legal</div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Política de Privacidad</h1>
+      <p class="mt-2 text-sm text-skin-base/50">Última actualización: 8 de diciembre de 2020</p>
+      <div class="prose mt-8 max-w-none">
+        <p>Esta Política de Privacidad describe nuestras políticas y procedimientos sobre la recopilación, uso y divulgación de su información cuando utiliza el Servicio y le informa sobre sus derechos de privacidad y cómo la ley lo protege.</p>
+        <p>Utilizamos sus datos personales para proporcionar y mejorar el Servicio. Al usar el Servicio, usted acepta la recopilación y uso de información de acuerdo con esta Política de Privacidad.</p>
+        <h2>Contacto</h2>
+        <p>Si tiene alguna pregunta sobre esta Política de Privacidad, puede contactarnos:</p>
+        <ul>
+          <li>Por email: <a href="mailto:info@randiantech.com">info@randiantech.com</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

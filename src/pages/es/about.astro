@@ -1,0 +1,58 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+---
+
+<Layout title={`Sobre Randiantech | ${SITE.title}`}>
+  <Header activeNav="about" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container pt-6 pb-16">
+      <div class="section-label mb-3">Nosotros</div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Sobre Randiantech</h1>
+      <div class="prose mt-8 max-w-none">
+        <h2>Quiénes somos</h2>
+        <p>Randiantech es una empresa de consultoría tecnológica especializada en integración de IA, capacitación empresarial e ingeniería de software. Fundada en 2016 por profesionales IT experimentados, ayudamos a empresas a navegar el paisaje de la IA y construir soluciones production-ready que entregan valor real de negocio.</p>
+        <p>Somos un equipo de ingenieros, arquitectos y líderes técnicos que han construido y escalado productos en empresas como GoFundMe, Financial Times, Capgemini, Globant y Level 3 Communications.</p>
+
+        <h2>Qué nos impulsa</h2>
+        <p>Creemos que la IA debe resolver problemas reales — no solo funcionar bien en demos. Nuestro enfoque se basa en ingeniería pragmática: elegimos las herramientas correctas para cada trabajo, construimos para producción desde el día uno, y medimos el éxito por resultados de negocio, no por complejidad técnica.</p>
+
+        <h2>Nuestros focos</h2>
+        <ul>
+          <li><strong>Capacitación IA Empresarial</strong> — Programas hands-on que dan a tu equipo habilidades IA prácticas que pueden aplicar inmediatamente</li>
+          <li><strong>Staff Augmentation</strong> — Ingenieros senior trabajando en horarios US que se integran a tu equipo y entregan desde el día uno</li>
+          <li><strong>Desarrollo de Productos IA</strong> — Desarrollo end-to-end de features y productos potenciados por IA</li>
+        </ul>
+
+        <h2>Datos de la empresa</h2>
+        <ul>
+          <li>Fundada en 2016</li>
+          <li>Sede central en Buenos Aires, Argentina</li>
+          <li>Oficinas en Vicente López (Argentina), San Pedro Sula (Honduras) y Miami, FL</li>
+          <li>Todos los ingenieros trabajando en horarios US (Este y Oeste)</li>
+          <li>Experiencia profunda en fintech, healthtech, e-commerce y media</li>
+        </ul>
+
+        <h2>Nuestro stack</h2>
+        <ul>
+          <li><strong>Lenguajes:</strong> TypeScript, Kotlin, Python, Go</li>
+          <li><strong>Backend:</strong> Node.js, Spring Boot, FastAPI</li>
+          <li><strong>Frontend:</strong> React, Next.js, Astro</li>
+          <li><strong>Cloud:</strong> AWS, GCP, Azure</li>
+          <li><strong>Datos:</strong> PostgreSQL, MongoDB, Redis, Kafka</li>
+          <li><strong>IA/ML:</strong> OpenAI, Anthropic, LangChain, pipelines RAG, agentes custom</li>
+          <li><strong>DevOps:</strong> Docker, Kubernetes, Terraform, GitHub Actions</li>
+        </ul>
+
+        <h2>Trabajemos juntos</h2>
+        <p>Ya sea que necesites capacitación IA para tu equipo, ingenieros expertos para escalar tu producto, o una solución IA custom construida desde cero — nos encantaría escucharte.</p>
+        <p><strong><a href="/es/contact/">Contactanos</a></strong> y construyamos algo que importe.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

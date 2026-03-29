@@ -1,7 +1,13 @@
 ---
 import Socials from "./Socials.astro";
+import { getLocaleFromUrl } from "../i18n/utils";
+import translations from "../i18n/translations";
 
 const currentYear = new Date().getFullYear();
+const locale = getLocaleFromUrl(Astro.url);
+const t = translations[locale].footer;
+const nav = translations[locale].nav;
+const prefix = locale === "es" ? "/es" : "";
 
 export interface Props {
   noMarginTop?: boolean;
@@ -14,35 +20,33 @@ const { noMarginTop = false } = Astro.props;
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="logo-link">
+        <a href={`${prefix}/`} class="logo-link">
           <span class="logo-r">Randian</span><span class="logo-t">tech</span>
         </a>
-        <p class="footer-desc">
-          AI consulting, enterprise training, and staff augmentation.
-        </p>
+        <p class="footer-desc">{t.desc}</p>
       </div>
       <div class="footer-links-grid">
         <div>
-          <div class="footer-col-title">Company</div>
-          <a href="/about/">About</a>
-          <a href="/team/">Team</a>
-          <a href="/careers/">Careers</a>
+          <div class="footer-col-title">{t.company}</div>
+          <a href={`${prefix}/about/`}>{nav.about}</a>
+          <a href={`${prefix}/team/`}>{nav.team}</a>
+          <a href={`${prefix}/careers/`}>{nav.careers}</a>
         </div>
         <div>
-          <div class="footer-col-title">Resources</div>
-          <a href="/services/">Services</a>
-          <a href="/contact/">Contact</a>
+          <div class="footer-col-title">{t.resources}</div>
+          <a href={`${prefix}/services/`}>{nav.services}</a>
+          <a href={`${prefix}/contact/`}>{nav.contact}</a>
         </div>
         <div>
-          <div class="footer-col-title">Legal</div>
-          <a href="/privacy/">Privacy</a>
-          <a href="/tos/">Terms</a>
+          <div class="footer-col-title">{t.legal}</div>
+          <a href={`${prefix}/privacy/`}>{t.privacy}</a>
+          <a href={`${prefix}/tos/`}>{t.terms}</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="copyright">
-        &copy; {currentYear} Randiantech. All rights reserved.
+        &copy; {currentYear} {t.copyright}
       </div>
       <Socials centered />
     </div>
@@ -65,14 +69,8 @@ const { noMarginTop = false } = Astro.props;
   .logo-link {
     @apply text-xl font-bold tracking-tight no-underline;
   }
-  .logo-r {
-    color: rgb(var(--color-text-base));
-    font-weight: 700;
-  }
-  .logo-t {
-    color: rgb(var(--color-accent));
-    font-weight: 800;
-  }
+  .logo-r { color: rgb(var(--color-text-base)); font-weight: 700; }
+  .logo-t { color: rgb(var(--color-accent)); font-weight: 800; }
   .footer-desc {
     @apply mt-3 text-sm text-skin-base/60;
   }

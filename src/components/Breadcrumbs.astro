@@ -1,12 +1,22 @@
 ---
-const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+import { getLocaleFromUrl } from "../i18n/utils";
+import translations from "../i18n/translations";
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = translations[locale].breadcrumb;
+
+let currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+if (locale === "es") {
+  currentUrlPath = currentUrlPath.replace(/^\/es/, "");
+}
 const breadcrumbList = currentUrlPath.split("/").slice(1);
+const prefix = locale === "es" ? "/es" : "";
 ---
 
 <nav class="site-container breadcrumb" aria-label="breadcrumb">
   <ul>
     <li>
-      <a href="/">Home</a>
+      <a href={`${prefix}/`}>{t.home}</a>
       <span class="crumb-sep" aria-hidden="true">/</span>
     </li>
     {
@@ -22,7 +32,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
+            <a href={`${prefix}/${breadcrumb}/`}>{breadcrumb}</a>
             <span class="crumb-sep" aria-hidden="true">/</span>
           </li>
         )

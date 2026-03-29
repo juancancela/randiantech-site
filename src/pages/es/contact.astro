@@ -1,0 +1,121 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+import translations from "../../i18n/translations";
+
+const t = translations.es.contact;
+---
+
+<Layout title={`${t.label} | ${SITE.title}`}>
+  <Header activeNav="contact" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container pt-6 pb-16">
+      <div class="section-label mb-3">{t.label}</div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+      <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+
+      <div class="mt-10 grid gap-3 sm:grid-cols-3">
+        <a href="mailto:hello@randiantech.com" class="card group text-center">
+          <div class="text-xs font-semibold uppercase tracking-wider text-skin-base/40">{t.email}</div>
+          <div class="mt-2 text-sm font-medium group-hover:text-skin-accent transition-colors">hello@randiantech.com</div>
+        </a>
+        <a href="https://www.linkedin.com/company/randiantech" target="_blank" rel="noopener noreferrer" class="card group text-center">
+          <div class="text-xs font-semibold uppercase tracking-wider text-skin-base/40">LinkedIn</div>
+          <div class="mt-2 text-sm font-medium group-hover:text-skin-accent transition-colors">Randiantech</div>
+        </a>
+        <a href="https://github.com/randiantech" target="_blank" rel="noopener noreferrer" class="card group text-center">
+          <div class="text-xs font-semibold uppercase tracking-wider text-skin-base/40">GitHub</div>
+          <div class="mt-2 text-sm font-medium group-hover:text-skin-accent transition-colors">randiantech</div>
+        </a>
+      </div>
+
+      <div class="mt-12">
+        <h2 class="text-xl font-bold tracking-tight">{t.formTitle}</h2>
+        <form id="contact-form" class="mt-6">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="firstName" class="form-label">{t.firstName} *</label>
+              <input type="text" id="firstName" name="firstName" required class="form-input" />
+            </div>
+            <div>
+              <label for="lastName" class="form-label">{t.lastName} *</label>
+              <input type="text" id="lastName" name="lastName" required class="form-input" />
+            </div>
+            <div>
+              <label for="email" class="form-label">{t.emailField} *</label>
+              <input type="email" id="email" name="email" required class="form-input" />
+            </div>
+            <div>
+              <label for="phone" class="form-label">{t.phone}</label>
+              <input type="tel" id="phone" name="phone" class="form-input" />
+            </div>
+          </div>
+          <div class="mt-4">
+            <label for="comments" class="form-label">{t.message} *</label>
+            <textarea id="comments" name="comments" required rows="5" class="form-input resize-y"></textarea>
+          </div>
+          <div class="mt-6">
+            <button type="submit" class="btn-primary">{t.submit} &rarr;</button>
+          </div>
+          <p id="form-status" class="mt-4 text-sm hidden"></p>
+        </form>
+      </div>
+
+      <div class="mt-16">
+        <h2 class="text-xl font-bold tracking-tight">{t.expectTitle}</h2>
+        <div class="mt-6 grid gap-4 sm:grid-cols-3">
+          <div class="card-flat rounded-xl border border-skin-line p-5">
+            <div class="text-2xl font-bold text-skin-accent">01</div>
+            <div class="mt-2 text-sm font-semibold">{t.step1}</div>
+            <p class="mt-1 text-xs text-skin-base/60">{t.step1Desc}</p>
+          </div>
+          <div class="card-flat rounded-xl border border-skin-line p-5">
+            <div class="text-2xl font-bold text-skin-accent">02</div>
+            <div class="mt-2 text-sm font-semibold">{t.step2}</div>
+            <p class="mt-1 text-xs text-skin-base/60">{t.step2Desc}</p>
+          </div>
+          <div class="card-flat rounded-xl border border-skin-line p-5">
+            <div class="text-2xl font-bold text-skin-accent">03</div>
+            <div class="mt-2 text-sm font-semibold">{t.step3}</div>
+            <p class="mt-1 text-xs text-skin-base/60">{t.step3Desc}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .form-label {
+    @apply mb-1 block text-xs font-medium uppercase tracking-wider text-skin-base/50;
+  }
+  .form-input {
+    @apply w-full rounded-lg border border-skin-line bg-skin-card px-4 py-2.5 text-sm text-skin-base outline-none transition-colors placeholder:text-skin-base/30 focus:border-skin-accent;
+  }
+</style>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const status = document.getElementById("form-status");
+    if (!form || !status) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      const subject = encodeURIComponent("Contacto desde randiantech.com");
+      const body = encodeURIComponent(`Nombre: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nTeléfono: ${data.phone || "N/A"}\n\n${data.comments}`);
+      window.location.href = `mailto:hello@randiantech.com?subject=${subject}&body=${body}`;
+      status.textContent = "Abriendo tu cliente de email...";
+      status.classList.remove("hidden");
+      form.reset();
+    });
+  }
+  initContactForm();
+  document.addEventListener("astro:after-swap", initContactForm);
+</script>

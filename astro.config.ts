@@ -6,6 +6,13 @@ import { SITE } from "./src/config";
 
 export default defineConfig({
   site: SITE.website,
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,

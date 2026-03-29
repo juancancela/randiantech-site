@@ -1,19 +1,24 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
-import LinkButton from "./LinkButton.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { getLocaleFromUrl } from "../i18n/utils";
+import translations from "../i18n/translations";
 
 export interface Props {
   activeNav?: "about" | "services" | "contact" | "team" | "careers";
 }
 
 const { activeNav } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const t = translations[locale].nav;
+const prefix = locale === "es" ? "/es" : "";
 ---
 
 <header>
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="header-container">
     <div class="header-inner">
-      <a href="/" class="logo whitespace-nowrap">
+      <a href={`${prefix}/`} class="logo whitespace-nowrap">
         {
           LOGO_IMAGE.enable ? (
             <img
@@ -57,19 +62,22 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/services/" class={activeNav === "services" ? "active" : ""}>Services</a>
+            <a href={`${prefix}/services/`} class={activeNav === "services" ? "active" : ""}>{t.services}</a>
           </li>
           <li>
-            <a href="/about/" class={activeNav === "about" ? "active" : ""}>About</a>
+            <a href={`${prefix}/about/`} class={activeNav === "about" ? "active" : ""}>{t.about}</a>
           </li>
           <li>
-            <a href="/team/" class={activeNav === "team" ? "active" : ""}>Team</a>
+            <a href={`${prefix}/team/`} class={activeNav === "team" ? "active" : ""}>{t.team}</a>
           </li>
           <li>
-            <a href="/careers/" class={activeNav === "careers" ? "active" : ""}>Careers</a>
+            <a href={`${prefix}/careers/`} class={activeNav === "careers" ? "active" : ""}>{t.careers}</a>
           </li>
           <li>
-            <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>Contact</a>
+            <a href={`${prefix}/contact/`} class={activeNav === "contact" ? "active" : ""}>{t.contact}</a>
+          </li>
+          <li class="nav-icon-item">
+            <LanguageSwitcher />
           </li>
           <li class="nav-icon-item">
             {
@@ -110,9 +118,6 @@ const { activeNav } = Astro.props;
   .logo {
     @apply text-xl font-bold tracking-tight no-underline sm:text-2xl;
   }
-  .logo-wordmark {
-    display: inline-block;
-  }
   .logo-r {
     color: rgb(var(--color-text-base));
     font-weight: 700;
@@ -127,7 +132,6 @@ const { activeNav } = Astro.props;
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
-
   nav {
     @apply flex flex-col items-center sm:flex-row sm:gap-1;
   }
@@ -143,7 +147,6 @@ const { activeNav } = Astro.props;
   nav .active {
     @apply bg-skin-card-muted text-skin-accent;
   }
-
   nav button {
     @apply p-1;
   }
@@ -156,7 +159,6 @@ const { activeNav } = Astro.props;
   #theme-btn svg {
     @apply hover:rotate-12;
   }
-
   .menu-icon line {
     @apply transition-opacity duration-75 ease-in-out;
   }
@@ -169,7 +171,6 @@ const { activeNav } = Astro.props;
   .menu-icon.is-active .close {
     @apply opacity-100;
   }
-
   .nav-icon-item {
     @apply flex;
   }
@@ -185,10 +186,7 @@ const { activeNav } = Astro.props;
       const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
       menuIcon?.classList.toggle("is-active");
       menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
-      menuBtn.setAttribute(
-        "aria-label",
-        menuExpanded ? "Open Menu" : "Close Menu"
-      );
+      menuBtn.setAttribute("aria-label", menuExpanded ? "Open Menu" : "Close Menu");
       menuItems?.classList.toggle("display-none");
     });
   }

@@ -1,0 +1,106 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { SITE } from "@config";
+import translations from "../../i18n/translations";
+
+const t = translations.es.home;
+---
+
+<Layout title={SITE.title} description={SITE.desc}>
+  <Header />
+  <main id="main-content">
+
+    <section id="hero" class="pt-20 pb-16 sm:pt-28 sm:pb-24">
+      <div class="max-w-3xl">
+        <div class="section-label mb-4">{t.label}</div>
+        <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+          {t.title} <span class="gradient-text">{t.titleAccent}</span>
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-skin-base/70 sm:text-xl">{t.desc}</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/es/contact/" class="btn-primary">{t.cta}</a>
+          <a href="/es/services/" class="btn-outline">{t.ctaSecondary}</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-16 sm:py-24">
+      <div class="section-label mb-3">{t.servicesLabel}</div>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.servicesTitle}</h2>
+      <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.servicesDesc}</p>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V2H8"/><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"/><path d="M2 12h2"/><path d="M9 11v2"/><path d="M15 11v2"/><path d="M20 12h2"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">{t.service1Title}</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">{t.service1Desc}</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">{t.service2Title}</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">{t.service2Desc}</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">{t.service3Title}</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">{t.service3Desc}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="py-16 sm:py-24">
+      <div class="grid gap-8 sm:grid-cols-3">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">2016</div>
+          <div class="mt-1 text-sm text-skin-base/60">{t.proofFounded}</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">50+</div>
+          <div class="mt-1 text-sm text-skin-base/60">{t.proofProjects}</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">US/LATAM</div>
+          <div class="mt-1 text-sm text-skin-base/60">{t.proofPresence}</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="py-16 sm:py-24">
+      <div class="section-label mb-3">{t.techLabel}</div>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.techTitle}</h2>
+      <div class="mt-8 flex flex-wrap gap-2">
+        {["TypeScript", "Python", "Kotlin", "Go", "React", "Next.js", "Node.js", "Spring Boot", "FastAPI", "AWS", "GCP", "Docker", "Kubernetes", "PostgreSQL", "MongoDB", "Redis", "Kafka", "OpenAI", "LangChain", "Terraform"].map(tech => (
+          <span class="rounded-lg border border-skin-line bg-skin-card px-3 py-1.5 text-xs font-medium text-skin-base/70">{tech}</span>
+        ))}
+      </div>
+    </section>
+
+    <section id="cta" class="py-16 sm:py-24">
+      <div class="card-flat rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">{t.ctaBottomTitle}</h2>
+        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">{t.ctaBottomDesc}</p>
+        <div class="mt-8">
+          <a href="/es/contact/" class="btn-primary">{t.ctaBottomBtn} &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .card-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg bg-skin-accent/10;
+  }
+  .card-icon svg {
+    @apply h-5 w-5 stroke-skin-accent fill-none;
+  }
+</style>

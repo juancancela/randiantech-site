@@ -1,0 +1,28 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+---
+
+<Layout title={`Términos de Servicio | ${SITE.title}`}>
+  <Header />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container pt-6 pb-16">
+      <div class="section-label mb-3">Legal</div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Términos de Servicio</h1>
+      <p class="mt-2 text-sm text-skin-base/50">Versión 1.0</p>
+      <div class="prose mt-8 max-w-none">
+        <p>El sitio web randiantech.com es una obra con derechos de autor perteneciente a Randiantech. Ciertas características del sitio pueden estar sujetas a directrices, términos o reglas adicionales.</p>
+        <h2>Acceso al Sitio</h2>
+        <p><strong>Sujeto a estos Términos.</strong> La Empresa le otorga una licencia limitada, no transferible, no exclusiva y revocable para acceder al Sitio únicamente para su uso personal y no comercial.</p>
+        <h2>Información de Contacto</h2>
+        <p>Dirección: Carlos Pellegrini 965</p>
+        <p>Email: <a href="mailto:info@randiantech.com">info@randiantech.com</a></p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

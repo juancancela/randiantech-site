@@ -4,6 +4,8 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Layout from "./Layout.astro";
+import { getLocaleFromUrl } from "../i18n/utils";
+import translations from "../i18n/translations";
 
 export interface Props {
   frontmatter: {
@@ -13,6 +15,8 @@ export interface Props {
 }
 
 const { frontmatter } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const t = translations[locale].about;
 ---
 
 <Layout title={`${frontmatter.title} | ${SITE.title}`}>
@@ -20,7 +24,7 @@ const { frontmatter } = Astro.props;
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container mb-16 mt-6">
-      <div class="section-label mb-3">About</div>
+      <div class="section-label mb-3">{t.label}</div>
       <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
         {frontmatter.title}
       </h1>

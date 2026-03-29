@@ -1,0 +1,19 @@
+---
+import { getLocaleFromUrl, getLocalizedPath, getAlternateLocale } from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const altLocale = getAlternateLocale(locale);
+const currentPath = Astro.url.pathname;
+const altPath = getLocalizedPath(currentPath, altLocale);
+const label = altLocale === "es" ? "ES" : "EN";
+---
+
+<a href={altPath} class="lang-switch" aria-label={`Switch to ${altLocale === "es" ? "Spanish" : "English"}`}>
+  {label}
+</a>
+
+<style>
+  .lang-switch {
+    @apply rounded-lg border border-skin-line px-2.5 py-1 text-xs font-semibold text-skin-base/60 no-underline transition-colors hover:border-skin-accent hover:text-skin-accent;
+  }
+</style>
