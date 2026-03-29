@@ -14,6 +14,8 @@ module.exports = {
   theme: {
     screens: {
       sm: "640px",
+      md: "768px",
+      lg: "1024px",
     },
 
     extend: {
@@ -58,8 +60,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        mono: ["IBM Plex Mono", "monospace"],
-        serif: ["IBM Plex Serif", "ui-serif", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        mono: ["JetBrains Mono", "Fira Code", "monospace"],
       },
 
       typography: {

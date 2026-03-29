@@ -1,10 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#990f3d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#cc3355;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" fill="url(#bgGradient)" />
-  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="monospace" font-size="30" font-weight="bold" fill="#ffffff">RT</text>
+  <rect width="64" height="64" rx="12" fill="#09090b"/>
+  <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" fill="#60a5fa">Rt</text>
 </svg>

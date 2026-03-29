@@ -1,6 +1,5 @@
 ---
 import { LOGO_IMAGE, SITE } from "@config";
-import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -12,199 +11,150 @@ const { activeNav } = Astro.props;
 
 <header>
   <a id="skip-to-content" href="#main-content">Skip to content</a>
-  <div class="site-container mt-4">
-    <div class="nav-frame press-frame press-surface-white">
-      <div class="top-nav-wrap">
-        <a href="/" class="logo whitespace-nowrap">
-          {
-            LOGO_IMAGE.enable ? (
-              <img
-                src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-                alt={SITE.title}
-                width={LOGO_IMAGE.width}
-                height={LOGO_IMAGE.height}
-              />
-            ) : (
-              <span class="logo-wordmark" aria-label={SITE.title}>
-                <span class="logo-first">RANDIAN</span><span class="logo-last">TECH</span>
-              </span>
-            )
-          }
-        </a>
-        <nav id="nav-menu">
-          <button
-            class="hamburger-menu focus-outline"
-            aria-label="Open Menu"
-            aria-expanded="false"
-            aria-controls="menu-items"
+  <div class="header-container">
+    <div class="header-inner">
+      <a href="/" class="logo whitespace-nowrap">
+        {
+          LOGO_IMAGE.enable ? (
+            <img
+              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+              alt={SITE.title}
+              width={LOGO_IMAGE.width}
+              height={LOGO_IMAGE.height}
+            />
+          ) : (
+            <span class="logo-wordmark" aria-label={SITE.title}>
+              <span class="logo-r">Randian</span><span class="logo-t">tech</span>
+            </span>
+          )
+        }
+      </a>
+      <nav id="nav-menu">
+        <button
+          class="hamburger-menu focus-outline"
+          aria-label="Open Menu"
+          aria-expanded="false"
+          aria-controls="menu-items"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="menu-icon"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="menu-icon"
-            >
-              <line x1="7" y1="12" x2="21" y2="12" class="line"></line>
-              <line x1="3" y1="6" x2="21" y2="6" class="line"></line>
-              <line x1="12" y1="18" x2="21" y2="18" class="line"></line>
-              <line x1="18" y1="6" x2="6" y2="18" class="close"></line>
-              <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
-            </svg>
-          </button>
-          <ul id="menu-items" class="display-none sm:flex">
-            <li>
-              <a href="/services/" class={activeNav === "services" ? "active" : ""}>
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="/about/" class={activeNav === "about" ? "active" : ""}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/team/" class={activeNav === "team" ? "active" : ""}>
-                Team
-              </a>
-            </li>
-            <li>
-              <a href="/careers/" class={activeNav === "careers" ? "active" : ""}>
-                Careers
-              </a>
-            </li>
-            <li>
-              <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>
-                Contact
-              </a>
-            </li>
-            <li class="nav-icon-item">
-              <LinkButton
-                href="https://github.com/randiantech"
-                className="focus-outline nav-icon-btn p-3 sm:p-1 flex"
-                ariaLabel="GitHub"
-                title="GitHub"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  class="scale-125 sm:scale-100"
+            <line x1="7" y1="12" x2="21" y2="12" class="line"></line>
+            <line x1="3" y1="6" x2="21" y2="6" class="line"></line>
+            <line x1="12" y1="18" x2="21" y2="18" class="line"></line>
+            <line x1="18" y1="6" x2="6" y2="18" class="close"></line>
+            <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
+          </svg>
+        </button>
+        <ul id="menu-items" class="display-none sm:flex">
+          <li>
+            <a href="/services/" class={activeNav === "services" ? "active" : ""}>Services</a>
+          </li>
+          <li>
+            <a href="/about/" class={activeNav === "about" ? "active" : ""}>About</a>
+          </li>
+          <li>
+            <a href="/team/" class={activeNav === "team" ? "active" : ""}>Team</a>
+          </li>
+          <li>
+            <a href="/careers/" class={activeNav === "careers" ? "active" : ""}>Careers</a>
+          </li>
+          <li>
+            <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>Contact</a>
+          </li>
+          <li class="nav-icon-item">
+            {
+              SITE.lightAndDarkMode && (
+                <button
+                  id="theme-btn"
+                  class="focus-outline"
+                  title="Toggles light & dark"
+                  aria-label="auto"
+                  aria-live="polite"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 .5C5.73.5.75 5.7.75 12.2c0 5.2 3.44 9.6 8.2 11.16.6.12.82-.27.82-.6v-2.18c-3.34.75-4.04-1.68-4.04-1.68-.54-1.43-1.33-1.82-1.33-1.82-1.09-.77.08-.75.08-.75 1.2.09 1.84 1.28 1.84 1.28 1.07 1.9 2.8 1.35 3.48 1.03.11-.8.42-1.35.76-1.66-2.67-.32-5.48-1.39-5.48-6.2 0-1.37.46-2.49 1.22-3.37-.12-.32-.53-1.62.12-3.38 0 0 1-.33 3.3 1.29.96-.28 1.98-.42 3-.43 1.02.01 2.04.15 3 .43 2.29-1.62 3.29-1.29 3.29-1.29.65 1.76.24 3.06.12 3.38.76.88 1.22 2 1.22 3.37 0 4.82-2.82 5.88-5.5 6.19.43.4.82 1.2.82 2.42v3.59c0 .33.21.72.83.6 4.76-1.56 8.2-5.96 8.2-11.16C23.25 5.7 18.27.5 12 .5Z"
-                  />
-                </svg>
-                <span class="sr-only">GitHub</span>
-              </LinkButton>
-            </li>
-            <li class="nav-icon-item">
-              {
-                SITE.lightAndDarkMode && (
-                  <button
-                    id="theme-btn"
-                    class="focus-outline"
-                    title="Toggles light & dark"
-                    aria-label="auto"
-                    aria-live="polite"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
-                      <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224Zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059Z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
-                      <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
-                    </svg>
-                  </button>
-                )
-              }
-            </li>
-          </ul>
-        </nav>
-      </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224Zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059Z" />
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" />
+                  </svg>
+                </button>
+              )
+            }
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>
 
 <style>
   #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-white transition-all focus:top-4;
   }
-  .nav-frame {
-    @apply w-full;
+  .header-container {
+    @apply sticky top-0 z-50 w-full border-b border-skin-line bg-skin-fill/80 backdrop-blur-lg;
   }
-  .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:px-6 sm:py-6;
+  .header-inner {
+    @apply mx-auto flex max-w-5xl items-center justify-between px-6 py-4;
   }
   .logo {
-    @apply absolute py-1 text-xl font-extrabold tracking-tight sm:static sm:text-2xl;
+    @apply text-xl font-bold tracking-tight no-underline sm:text-2xl;
   }
   .logo-wordmark {
-    position: relative;
     display: inline-block;
-    padding-bottom: 6px;
-    letter-spacing: 0.06em;
   }
-  .logo-wordmark::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
-    background: rgba(var(--color-accent), 0.9);
-  }
-  .logo-first {
-    color: rgba(var(--color-text-base), 0.55);
+  .logo-r {
+    color: rgb(var(--color-text-base));
     font-weight: 700;
   }
-  .logo-last {
-    color: rgb(var(--color-text-base));
-    font-weight: 900;
+  .logo-t {
+    color: rgb(var(--color-accent));
+    font-weight: 800;
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply p-2 sm:hidden;
   }
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
 
   nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:flex-wrap sm:justify-end sm:gap-x-2 sm:gap-y-1 sm:py-0;
+    @apply flex flex-col items-center sm:flex-row sm:gap-1;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-3 sm:gap-y-1;
+    @apply mt-4 flex w-full flex-col gap-1 sm:mt-0 sm:w-auto sm:flex-row sm:items-center sm:gap-1;
   }
   nav ul li {
-    @apply col-span-2 flex items-center justify-center sm:col-auto sm:w-auto;
+    @apply flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-semibold text-skin-accent/90 hover:text-skin-accent sm:my-0 sm:w-auto sm:px-1.5 sm:py-1;
+    @apply rounded-lg px-3 py-2 text-sm font-medium text-skin-base/70 transition-colors hover:bg-skin-card-muted hover:text-skin-base sm:px-3 sm:py-1.5;
   }
   nav .active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
-  }
-  nav a.active svg {
-    @apply fill-skin-accent;
+    @apply bg-skin-card-muted text-skin-accent;
   }
 
   nav button {
     @apply p-1;
   }
   nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
+    @apply h-5 w-5 fill-skin-base hover:fill-skin-accent;
   }
   #theme-btn {
-    @apply p-3 sm:p-1;
+    @apply rounded-lg p-2 transition-colors hover:bg-skin-card-muted;
   }
   #theme-btn svg {
-    @apply scale-125 hover:rotate-12 sm:scale-100;
+    @apply hover:rotate-12;
   }
 
   .menu-icon line {
@@ -221,10 +171,7 @@ const { activeNav } = Astro.props;
   }
 
   .nav-icon-item {
-    @apply col-span-1;
-  }
-  .nav-icon-btn {
-    @apply w-auto;
+    @apply flex;
   }
 </style>
 

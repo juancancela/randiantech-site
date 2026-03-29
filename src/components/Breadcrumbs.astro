@@ -7,7 +7,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
   <ul>
     <li>
       <a href="/">Home</a>
-      <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+      <span class="crumb-sep" aria-hidden="true">/</span>
     </li>
     {
       breadcrumbList.map((breadcrumb, index) =>
@@ -23,7 +23,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
         ) : (
           <li>
             <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
-            <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+            <span class="crumb-sep" aria-hidden="true">/</span>
           </li>
         )
       )
@@ -33,18 +33,18 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 
 <style>
   .breadcrumb {
-    @apply mb-3 mt-6 font-mono text-sm;
+    @apply mb-2 mt-6 text-xs;
   }
   .breadcrumb ul li {
     @apply inline;
   }
   .breadcrumb ul li a {
-    @apply capitalize text-skin-base/70 hover:text-skin-base;
+    @apply capitalize text-skin-base/40 hover:text-skin-accent;
   }
   .breadcrumb ul li span {
-    @apply text-skin-base/70;
+    @apply text-skin-base/40;
   }
   .crumb-sep {
-    @apply px-2 text-skin-base/40;
+    @apply px-1.5 text-skin-base/20;
   }
 </style>

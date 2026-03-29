@@ -19,37 +19,15 @@ const { frontmatter } = Astro.props;
   <Header activeNav="about" />
   <Breadcrumbs />
   <main id="main-content">
-    <section class="site-container mb-28 mt-6">
-      <div id="about" class="press-frame press-surface-white w-full p-6 sm:p-8">
-        <h1 class="text-2xl tracking-wider sm:text-3xl">
-          {frontmatter.title}
-        </h1>
-        <div class="prose max-w-none">
-          <slot />
-        </div>
+    <section class="site-container mb-16 mt-6">
+      <div class="section-label mb-3">About</div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        {frontmatter.title}
+      </h1>
+      <div class="prose mt-8 max-w-none">
+        <slot />
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
-
-<style>
-  :global(#about .about-highlights) {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    :global(#about .about-highlights) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  :global(#about img) {
-    border: 2px solid rgb(var(--color-text-base));
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
-    background: rgb(var(--color-card));
-  }
-</style>

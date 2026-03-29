@@ -1,67 +1,44 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About Randian Tech"
+title: "About Randiantech"
 ---
 
-## This is Randiantech
+## Who we are
 
-_Mastering the Art of Crafting Software since 2016_
+Randiantech is a technology consulting company specializing in AI integration, enterprise training, and software engineering. Founded in 2016 by experienced IT professionals, we help companies navigate the AI landscape and build production-ready solutions that deliver real business value.
 
-Founded by experienced IT professionals, Randian Tech embodies a comprehensive approach on how to **successfully architect, implement and deliver mission-critical products and services**. Our view encompasses an all-in-one methodology that gets the best for our clients from our outstanding engineering team.
+We're a team of engineers, architects, and technical leaders who have built and scaled products at companies like GoFundMe, the Financial Times, Capgemini, Globant, and Level 3 Communications.
 
-Our mission is to provide the talents to **carefully craft digital solutions** prepared to unleash the potential of your organization.
+## What drives us
 
-**Randian Tech** breathes software engineering. Our obsession is to craft world-class, scalable and reliable software to enable your company to move to the next level.
+We believe AI should solve real problems — not just demo well. Our approach is grounded in pragmatic engineering: we choose the right tools for the job, build for production from day one, and measure success by business outcomes, not technical complexity.
 
-## How We Can Help
+## Our focus areas
 
-Randian Tech is ready to provide **fully-fledged, world class, highly autonomous development teams.**
+- **Enterprise AI Training** — Hands-on programs that give your team practical AI skills they can apply immediately
+- **Staff Augmentation** — Senior engineers working on US timezones who integrate into your team and deliver from day one
+- **AI Product Development** — End-to-end development of AI-powered features and products
 
-Our teams have **vast experience working for highly challenging projects for US-based companies**, from startups to large enterprises.
-
-Randian Tech technical mentors can provide architectural guidelines to help your development teams to take best approaches and/or train them on required technologies and platforms.
-
-<div class="about-highlights">
-<div class="press-frame-subtle press-surface-paper p-4">
-<div class="font-mono text-xs uppercase tracking-wider opacity-80">Ownership</div>
-<div class="mt-1">We treat your product as our own. Full accountability from architecture to deployment.</div>
-</div>
-<div class="press-frame-subtle press-surface-paper p-4">
-<div class="font-mono text-xs uppercase tracking-wider opacity-80">Transparency</div>
-<div class="mt-1">Clear communication, honest timelines, and no surprises. We tell you what you need to hear.</div>
-</div>
-<div class="press-frame-subtle press-surface-paper p-4">
-<div class="font-mono text-xs uppercase tracking-wider opacity-80">Quality</div>
-<div class="mt-1">Clean code, tested systems, documented decisions. We build for the long term.</div>
-</div>
-<div class="press-frame-subtle press-surface-paper p-4">
-<div class="font-mono text-xs uppercase tracking-wider opacity-80">Delivery</div>
-<div class="mt-1">We ship. Iteratively, reliably, and with a focus on what matters most to your users.</div>
-</div>
-</div>
-
-## Randian Tech Facts
+## Company facts
 
 - Founded in 2016
-- Headquarters at Ciudad de Buenos Aires (Downtown)
-- Working offices at Vicente Lopez (Argentina) and San Pedro Sula (Honduras)
-- Commercial office at Miami, FL
-- All Software Developers and Designers working on US timezones (East and West)
+- Headquarters in Buenos Aires, Argentina
+- Offices in Vicente Lopez (Argentina), San Pedro Sula (Honduras), and Miami, FL
+- All engineers working on US timezones (East and West)
+- Deep experience across fintech, healthtech, e-commerce, and media
 
-## Our Stack
-
-We're polyglot engineers comfortable across the stack. Our core expertise includes:
+## Our stack
 
 - **Languages:** TypeScript, Kotlin, Python, Go
 - **Backend:** Node.js, Spring Boot, FastAPI
 - **Frontend:** React, Next.js, Astro
 - **Cloud:** AWS, GCP, Azure
 - **Data:** PostgreSQL, MongoDB, Redis, Kafka
-- **AI/ML:** OpenAI, LangChain, RAG pipelines, custom agents
+- **AI/ML:** OpenAI, Anthropic, LangChain, RAG pipelines, custom agents
 - **DevOps:** Docker, Kubernetes, Terraform, GitHub Actions
 
 ## Let's work together
 
-Whether you need a technical partner for a new product, help scaling an existing system, or expert guidance on architecture and AI integration — we'd love to hear from you.
+Whether you need AI training for your team, expert engineers to scale your product, or a custom AI solution built from scratch — we'd love to hear from you.
 
-**[Get in touch](/contact/)** and let's build something great.
+**[Get in touch](/contact/)** and let's build something that matters.

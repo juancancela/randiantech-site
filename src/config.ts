@@ -2,10 +2,10 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://randiantech.com/",
-  author: "Randian Tech",
+  author: "Randiantech",
   profile: "https://randiantech.com",
-  desc: "Randian Tech — Software engineering, AI integration, and product delivery.",
-  title: "Randian Tech",
+  desc: "Randiantech — AI consulting, enterprise AI training, and staff augmentation for companies building the future.",
+  title: "Randiantech",
   ogImage: "og.png",
   lightAndDarkMode: true,
 };

@@ -2,190 +2,124 @@
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
 import { SITE } from "@config";
 ---
 
 <Layout title={SITE.title} description={SITE.desc}>
   <Header />
   <main id="main-content">
-    <section id="hero" class="pb-6 pt-8">
-      <div class="press-frame press-surface-white overflow-hidden p-6 sm:p-8">
-        <div class="w-full">
-          <h1 class="font-semibold tracking-tight">
-            Your partner to craft <span class="text-skin-accent">superb</span> software.
-          </h1>
 
-          <div class="mt-4 space-y-4 text-base leading-relaxed font-serif">
-            <p>
-              Founded by experienced IT professionals, <strong>Randian Tech</strong>
-              embodies a comprehensive approach on how to successfully architect,
-              implement and deliver mission-critical products and services.
-            </p>
-            <p>
-              From early-stage MVPs to complex distributed architectures, we
-              bring deep technical expertise and a pragmatic approach to every
-              engagement. Our team has shipped production systems for companies
-              across fintech, healthtech, e-commerce, and media.
-            </p>
-            <p>
-              We specialize in <strong>Web APIs</strong>,
-              <strong>cloud-native architectures</strong>,
-              <strong>AI integration</strong>, and
-              <strong>product delivery</strong> — always with a focus on
-              outcomes over output.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="pb-6 pt-6">
-      <h2>Our Services</h2>
-      <div class="services-grid">
-        <a href="/services/" class="press-frame-subtle press-surface-paper p-5 service-card">
-          <img src="/images/services/tg-staff-augmentation.svg" alt="Staff Augmentation" class="service-icon" />
-          <div class="font-mono text-xs uppercase tracking-wider opacity-80">
-            Staff Augmentation
-          </div>
-          <div class="mt-2 font-serif text-sm leading-relaxed">
-            Extend your team with skilled engineers who integrate seamlessly into your workflow.
-          </div>
-        </a>
-        <a href="/services/" class="press-frame-subtle press-surface-paper p-5 service-card">
-          <img src="/images/services/tg-fixed-price-project.svg" alt="Fixed Price Projects" class="service-icon" />
-          <div class="font-mono text-xs uppercase tracking-wider opacity-80">
-            Fixed Price Projects
-          </div>
-          <div class="mt-2 font-serif text-sm leading-relaxed">
-            End-to-end development with clear scope, timeline, and budget — from discovery to delivery.
-          </div>
-        </a>
-        <a href="/services/" class="press-frame-subtle press-surface-paper p-5 service-card">
-          <img src="/images/services/tg-managed-agile-teams.svg" alt="Managed Agile Teams" class="service-icon" />
-          <div class="font-mono text-xs uppercase tracking-wider opacity-80">
-            Managed Agile Teams
-          </div>
-          <div class="mt-2 font-serif text-sm leading-relaxed">
-            Fully-managed, autonomous development squads delivering iteratively with full transparency.
-          </div>
-        </a>
-        <a href="/services/" class="press-frame-subtle press-surface-paper p-5 service-card">
-          <img src="/images/services/tg-on-site-training.svg" alt="On Site Training" class="service-icon" />
-          <div class="font-mono text-xs uppercase tracking-wider opacity-80">
-            On Site Training
-          </div>
-          <div class="mt-2 font-serif text-sm leading-relaxed">
-            Technical mentors providing architectural guidelines and hands-on training for your teams.
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section id="technologies" class="pb-6 pt-6">
-      <h2>Technologies</h2>
-      <div class="tech-grid">
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">TypeScript</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Kotlin</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Python</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Go</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">React</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Node.js</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Spring Boot</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">FastAPI</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">AWS</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Docker</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Kubernetes</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">PostgreSQL</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">MongoDB</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Redis</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Kafka</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">OpenAI</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">LangChain</div>
-        </div>
-        <div class="press-frame-subtle press-surface-paper p-4 text-center">
-          <div class="font-mono text-xs font-semibold">Terraform</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cta" class="pb-12 pt-6">
-      <div class="press-frame press-surface-white p-6 text-center sm:p-8">
-        <h2 class="text-xl font-semibold sm:text-2xl">Let's craft it together.</h2>
-        <p class="mt-2 font-serif text-base opacity-80">
-          Ready to build something great? Let's talk about your project.
+    <section id="hero" class="pt-20 pb-16 sm:pt-28 sm:pb-24">
+      <div class="max-w-3xl">
+        <div class="section-label mb-4">AI Consulting & Engineering</div>
+        <h1 class="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+          Build smarter with <span class="gradient-text">AI that works.</span>
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-skin-base/70 sm:text-xl">
+          Randiantech helps companies integrate AI into their products and operations.
+          From enterprise training to custom AI solutions and expert staff augmentation —
+          we turn AI potential into production-ready results.
         </p>
-        <div class="mt-6">
-          <LinkButton
-            href="/contact/"
-            className="inline-block border-2 border-skin-accent bg-skin-accent px-6 py-3 font-semibold text-white hover:opacity-85"
-          >
-            Get in touch &rarr;
-          </LinkButton>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/contact/" class="btn-primary">Start a conversation</a>
+          <a href="/services/" class="btn-outline">View services</a>
         </div>
       </div>
     </section>
-  </main>
 
+    <section id="services" class="py-16 sm:py-24">
+      <div class="section-label mb-3">What we do</div>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        AI-first services for modern companies
+      </h2>
+      <p class="mt-4 max-w-2xl text-base text-skin-base/70">
+        Whether you're starting your AI journey or scaling it, we provide the expertise and hands-on execution to get you there.
+      </p>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V2H8"/><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"/><path d="M2 12h2"/><path d="M9 11v2"/><path d="M15 11v2"/><path d="M20 12h2"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">Enterprise AI Training</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">
+            Hands-on training programs that equip your teams with practical AI skills — from prompt engineering to building RAG pipelines and custom agents.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">Staff Augmentation</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">
+            Senior engineers who integrate into your team and ship from day one. Full-stack, backend, frontend, QA — working on US timezones.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-semibold">AI Product Development</h3>
+          <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">
+            End-to-end AI product engineering — LLM integrations, agent architectures, RAG systems, and intelligent automation, built for production.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" class="py-16 sm:py-24">
+      <div class="grid gap-8 sm:grid-cols-3">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">2016</div>
+          <div class="mt-1 text-sm text-skin-base/60">Founded</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">50+</div>
+          <div class="mt-1 text-sm text-skin-base/60">Projects delivered</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-skin-accent">US/LATAM</div>
+          <div class="mt-1 text-sm text-skin-base/60">Global presence</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="py-16 sm:py-24">
+      <div class="section-label mb-3">Our stack</div>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Technologies we master
+      </h2>
+      <div class="mt-8 flex flex-wrap gap-2">
+        {["TypeScript", "Python", "Kotlin", "Go", "React", "Next.js", "Node.js", "Spring Boot", "FastAPI", "AWS", "GCP", "Docker", "Kubernetes", "PostgreSQL", "MongoDB", "Redis", "Kafka", "OpenAI", "LangChain", "Terraform"].map(tech => (
+          <span class="rounded-lg border border-skin-line bg-skin-card px-3 py-1.5 text-xs font-medium text-skin-base/70">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </section>
+
+    <section id="cta" class="py-16 sm:py-24">
+      <div class="card-flat rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+          Ready to integrate AI into your company?
+        </h2>
+        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">
+          Whether you need AI training for your team, expert engineers, or a custom AI solution built from scratch — let's talk.
+        </p>
+        <div class="mt-8">
+          <a href="/contact/" class="btn-primary">Get in touch &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
   <Footer />
 </Layout>
 
 <style>
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+  .card-icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg bg-skin-accent/10;
   }
-
-  #services h2,
-  #technologies h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-
-  .services-grid {
-    @apply mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2;
-  }
-
-  .service-card {
-    @apply block no-underline text-skin-base transition-transform hover:scale-[1.02];
-  }
-
-  .service-icon {
-    @apply mb-3 h-16 w-16 opacity-80;
-  }
-
-  .tech-grid {
-    @apply mt-4 grid grid-cols-3 gap-3 sm:grid-cols-6;
+  .card-icon svg {
+    @apply h-5 w-5 stroke-skin-accent fill-none;
   }
 </style>
