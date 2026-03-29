@@ -3,15 +3,23 @@ layout: ../layouts/AboutLayout.astro
 title: "About Randian Tech"
 ---
 
-## Who we are
+## This is Randiantech
 
-Randian Tech is a software engineering company founded on the belief that great software comes from combining deep technical expertise with a genuine understanding of business needs.
+_Mastering the Art of Crafting Software since 2016_
 
-We're a team of experienced engineers, architects, and technical leaders who have built and scaled products at companies like GoFundMe, the Financial Times, Capgemini, Globant, and Level 3 Communications. We bring that experience to every project we take on.
+Founded by experienced IT professionals, Randian Tech embodies a comprehensive approach on how to **successfully architect, implement and deliver mission-critical products and services**. Our view encompasses an all-in-one methodology that gets the best for our clients from our outstanding engineering team.
 
-## How we work
+Our mission is to provide the talents to **carefully craft digital solutions** prepared to unleash the potential of your organization.
 
-We believe in pragmatic engineering — choosing the right tools for the job, not the trendiest ones. Our approach is grounded in:
+**Randian Tech** breathes software engineering. Our obsession is to craft world-class, scalable and reliable software to enable your company to move to the next level.
+
+## How We Can Help
+
+Randian Tech is ready to provide **fully-fledged, world class, highly autonomous development teams.**
+
+Our teams have **vast experience working for highly challenging projects for US-based companies**, from startups to large enterprises.
+
+Randian Tech technical mentors can provide architectural guidelines to help your development teams to take best approaches and/or train them on required technologies and platforms.
 
 <div class="about-highlights">
 <div class="press-frame-subtle press-surface-paper p-4">
@@ -32,7 +40,15 @@ We believe in pragmatic engineering — choosing the right tools for the job, no
 </div>
 </div>
 
-## Our stack
+## Randian Tech Facts
+
+- Founded in 2016
+- Headquarters at Ciudad de Buenos Aires (Downtown)
+- Working offices at Vicente Lopez (Argentina) and San Pedro Sula (Honduras)
+- Commercial office at Miami, FL
+- All Software Developers and Designers working on US timezones (East and West)
+
+## Our Stack
 
 We're polyglot engineers comfortable across the stack. Our core expertise includes:
 

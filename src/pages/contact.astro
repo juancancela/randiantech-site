@@ -16,64 +16,76 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 
         <div class="prose mt-6 max-w-none">
           <p>
-            Interested in working together? Have a project in mind? We'd love to
-            hear from you.
+            Interested in working together? Have a project in mind? We'd love
+            to hear from you. Fill out the form below or reach out directly.
           </p>
+        </div>
 
-          <div class="contact-cards">
-            <div class="press-frame-subtle press-surface-paper p-5">
-              <div
-                class="font-mono text-xs uppercase tracking-wider opacity-80"
-              >
-                Email
-              </div>
-              <div class="mt-2">
-                <a href="mailto:hello@randiantech.com">hello@randiantech.com</a>
-              </div>
+        <div class="contact-cards mt-6">
+          <a href="mailto:hello@randiantech.com" class="contact-card press-frame-subtle press-surface-paper p-5">
+            <div class="font-mono text-xs uppercase tracking-wider opacity-80">Email</div>
+            <div class="mt-2 font-serif text-sm">hello@randiantech.com</div>
+          </a>
+          <a href="https://www.linkedin.com/company/randiantech" target="_blank" rel="noopener noreferrer" class="contact-card press-frame-subtle press-surface-paper p-5">
+            <div class="font-mono text-xs uppercase tracking-wider opacity-80">LinkedIn</div>
+            <div class="mt-2 font-serif text-sm">Randian Tech on LinkedIn</div>
+          </a>
+          <a href="https://github.com/randiantech" target="_blank" rel="noopener noreferrer" class="contact-card press-frame-subtle press-surface-paper p-5">
+            <div class="font-mono text-xs uppercase tracking-wider opacity-80">GitHub</div>
+            <div class="mt-2 font-serif text-sm">github.com/randiantech</div>
+          </a>
+        </div>
+
+        <h2 class="mt-10 mb-4 font-mono text-lg font-semibold tracking-wide">
+          Send us a message
+        </h2>
+
+        <form id="contact-form" class="contact-form">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="firstName" class="form-label">First Name *</label>
+              <input type="text" id="firstName" name="firstName" required class="form-input" />
             </div>
-
-            <div class="press-frame-subtle press-surface-paper p-5">
-              <div
-                class="font-mono text-xs uppercase tracking-wider opacity-80"
-              >
-                LinkedIn
-              </div>
-              <div class="mt-2">
-                <a
-                  href="https://www.linkedin.com/company/randiantech"
-                  target="_blank">Randian Tech on LinkedIn</a
-                >
-              </div>
+            <div class="form-field">
+              <label for="lastName" class="form-label">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" required class="form-input" />
             </div>
-
-            <div class="press-frame-subtle press-surface-paper p-5">
-              <div
-                class="font-mono text-xs uppercase tracking-wider opacity-80"
-              >
-                GitHub
-              </div>
-              <div class="mt-2">
-                <a href="https://github.com/randiantech" target="_blank"
-                  >github.com/randiantech</a
-                >
-              </div>
+            <div class="form-field">
+              <label for="email" class="form-label">Email *</label>
+              <input type="email" id="email" name="email" required class="form-input" />
+            </div>
+            <div class="form-field">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="tel" id="phone" name="phone" class="form-input" />
             </div>
           </div>
+          <div class="form-field mt-4">
+            <label for="comments" class="form-label">Comments *</label>
+            <textarea id="comments" name="comments" required rows="5" class="form-input form-textarea"></textarea>
+          </div>
+          <div class="mt-6">
+            <button type="submit" class="submit-btn">
+              Submit &rarr;
+            </button>
+          </div>
+          <p id="form-status" class="mt-4 font-serif text-sm hidden"></p>
+        </form>
 
+        <div class="prose mt-10 max-w-none">
           <h2>What to expect</h2>
           <p>When you reach out, here's what happens next:</p>
           <ol>
             <li>
-              <strong>Discovery call</strong> — We'll schedule a 30-minute call
-              to understand your needs, timeline, and constraints.
+              <strong>Discovery call</strong> — We'll schedule a 30-minute
+              call to understand your needs, timeline, and constraints.
             </li>
             <li>
               <strong>Proposal</strong> — Within a few days, you'll receive a
               clear proposal with scope, approach, timeline, and pricing.
             </li>
             <li>
-              <strong>Kickoff</strong> — Once aligned, we hit the ground running
-              with a structured onboarding process.
+              <strong>Kickoff</strong> — Once aligned, we hit the ground
+              running with a structured onboarding process.
             </li>
           </ol>
         </div>
@@ -88,7 +100,6 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.75rem;
-    margin: 1.5rem 0;
   }
 
   @media (min-width: 640px) {
@@ -96,4 +107,67 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+
+  .contact-card {
+    @apply block no-underline text-skin-base transition-transform hover:scale-[1.02];
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .form-field {
+    @apply flex flex-col;
+  }
+
+  .form-label {
+    @apply mb-1 font-mono text-xs uppercase tracking-wider opacity-80;
+  }
+
+  .form-input {
+    @apply w-full border-2 border-skin-line bg-skin-fill px-3 py-2 font-serif text-sm text-skin-base outline-none transition-colors focus:border-skin-accent;
+  }
+
+  .form-textarea {
+    @apply resize-y;
+  }
+
+  .submit-btn {
+    @apply border-2 border-skin-accent bg-skin-accent px-6 py-3 font-mono font-semibold text-white transition-opacity hover:opacity-85;
+  }
 </style>
+
+<script>
+  function initContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const status = document.getElementById("form-status");
+    if (!form || !status) return;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const subject = encodeURIComponent("Contact from randiantech.com");
+      const body = encodeURIComponent(
+        `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone || "N/A"}\n\n${data.comments}`
+      );
+      window.location.href = `mailto:hello@randiantech.com?subject=${subject}&body=${body}`;
+
+      status.textContent = "Opening your email client...";
+      status.classList.remove("hidden");
+      form.reset();
+    });
+  }
+
+  initContactForm();
+  document.addEventListener("astro:after-swap", initContactForm);
+</script>
