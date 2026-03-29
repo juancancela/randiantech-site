@@ -1,0 +1,79 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+---
+
+<Layout title={`Services | ${SITE.title}`}>
+  <Header activeNav="services" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container mb-16 mt-6">
+      <div class="press-frame press-surface-white w-full p-6 sm:p-8">
+        <h1 class="text-2xl tracking-wider sm:text-3xl">Our Services</h1>
+
+        <div class="prose mt-6 max-w-none">
+          <h2>Product Engineering</h2>
+          <p>
+            We build web applications and APIs from the ground up. Whether
+            you're launching an MVP or scaling an existing product, we handle the
+            full development lifecycle — from technical discovery and
+            architecture design through implementation, testing, and deployment.
+          </p>
+          <p>
+            We work with modern stacks (TypeScript, Kotlin, React, Node.js,
+            Spring Boot) and follow best practices for testing, CI/CD, and
+            observability. Our goal is to deliver software that's not just
+            functional, but maintainable and ready to evolve.
+          </p>
+
+          <h2>AI & LLM Integration</h2>
+          <p>
+            AI is most valuable when it solves real problems within existing
+            workflows. We help companies integrate LLMs and AI capabilities
+            pragmatically — not as science experiments, but as production-ready
+            features.
+          </p>
+          <p>Our AI work includes:</p>
+          <ul>
+            <li>LLM-powered content generation and summarization</li>
+            <li>RAG (Retrieval-Augmented Generation) pipelines</li>
+            <li>Custom agent architectures</li>
+            <li>Prompt engineering and evaluation frameworks</li>
+            <li>Integration with OpenAI, Anthropic, and open-source models</li>
+          </ul>
+
+          <h2>Cloud & Infrastructure</h2>
+          <p>
+            We design and implement cloud-native architectures that scale
+            reliably and cost-effectively. Our infrastructure work spans:
+          </p>
+          <ul>
+            <li>AWS, GCP, and Azure environments</li>
+            <li>Container orchestration with Docker and Kubernetes</li>
+            <li>Infrastructure as Code (Terraform, Pulumi)</li>
+            <li>CI/CD pipelines (GitHub Actions, GitLab CI)</li>
+            <li>Monitoring and observability (Datadog, Grafana, OpenTelemetry)</li>
+          </ul>
+
+          <h2>Technical Leadership</h2>
+          <p>
+            Sometimes you don't need more developers — you need the right
+            technical direction. We offer fractional CTO and tech lead services
+            to help your team level up:
+          </p>
+          <ul>
+            <li>Architecture reviews and recommendations</li>
+            <li>Engineering team mentoring and coaching</li>
+            <li>Technical due diligence for investors</li>
+            <li>Build-vs-buy analysis</li>
+            <li>Roadmap planning and technical strategy</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

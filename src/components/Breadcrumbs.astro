@@ -1,0 +1,50 @@
+---
+const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+const breadcrumbList = currentUrlPath.split("/").slice(1);
+---
+
+<nav class="site-container breadcrumb" aria-label="breadcrumb">
+  <ul>
+    <li>
+      <a href="/">Home</a>
+      <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+    </li>
+    {
+      breadcrumbList.map((breadcrumb, index) =>
+        index + 1 === breadcrumbList.length ? (
+          <li>
+            <span
+              class={`${index > 0 ? "lowercase" : "capitalize"}`}
+              aria-current="page"
+            >
+              {decodeURIComponent(breadcrumb)}
+            </span>
+          </li>
+        ) : (
+          <li>
+            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
+            <span class="crumb-sep" aria-hidden="true">&rsaquo;</span>
+          </li>
+        )
+      )
+    }
+  </ul>
+</nav>
+
+<style>
+  .breadcrumb {
+    @apply mb-3 mt-6 font-mono text-sm;
+  }
+  .breadcrumb ul li {
+    @apply inline;
+  }
+  .breadcrumb ul li a {
+    @apply capitalize text-skin-base/70 hover:text-skin-base;
+  }
+  .breadcrumb ul li span {
+    @apply text-skin-base/70;
+  }
+  .crumb-sep {
+    @apply px-2 text-skin-base/40;
+  }
+</style>

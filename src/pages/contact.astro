@@ -1,0 +1,99 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
+---
+
+<Layout title={`Contact | ${SITE.title}`}>
+  <Header activeNav="contact" />
+  <Breadcrumbs />
+  <main id="main-content">
+    <section class="site-container mb-16 mt-6">
+      <div class="press-frame press-surface-white w-full p-6 sm:p-8">
+        <h1 class="text-2xl tracking-wider sm:text-3xl">Get in touch</h1>
+
+        <div class="prose mt-6 max-w-none">
+          <p>
+            Interested in working together? Have a project in mind? We'd love to
+            hear from you.
+          </p>
+
+          <div class="contact-cards">
+            <div class="press-frame-subtle press-surface-paper p-5">
+              <div
+                class="font-mono text-xs uppercase tracking-wider opacity-80"
+              >
+                Email
+              </div>
+              <div class="mt-2">
+                <a href="mailto:hello@randiantech.com">hello@randiantech.com</a>
+              </div>
+            </div>
+
+            <div class="press-frame-subtle press-surface-paper p-5">
+              <div
+                class="font-mono text-xs uppercase tracking-wider opacity-80"
+              >
+                LinkedIn
+              </div>
+              <div class="mt-2">
+                <a
+                  href="https://www.linkedin.com/company/randiantech"
+                  target="_blank">Randian Tech on LinkedIn</a
+                >
+              </div>
+            </div>
+
+            <div class="press-frame-subtle press-surface-paper p-5">
+              <div
+                class="font-mono text-xs uppercase tracking-wider opacity-80"
+              >
+                GitHub
+              </div>
+              <div class="mt-2">
+                <a href="https://github.com/randiantech" target="_blank"
+                  >github.com/randiantech</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <h2>What to expect</h2>
+          <p>When you reach out, here's what happens next:</p>
+          <ol>
+            <li>
+              <strong>Discovery call</strong> — We'll schedule a 30-minute call
+              to understand your needs, timeline, and constraints.
+            </li>
+            <li>
+              <strong>Proposal</strong> — Within a few days, you'll receive a
+              clear proposal with scope, approach, timeline, and pricing.
+            </li>
+            <li>
+              <strong>Kickoff</strong> — Once aligned, we hit the ground running
+              with a structured onboarding process.
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .contact-cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
