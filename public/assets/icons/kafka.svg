@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 416" fill="none">
+  <g transform="translate(28, 8)">
+    <circle cx="130" cy="88" r="38" stroke="#ffffff" stroke-width="18" fill="none"/>
+    <circle cx="130" cy="312" r="38" stroke="#ffffff" stroke-width="18" fill="none"/>
+    <circle cx="130" cy="200" r="38" stroke="#ffffff" stroke-width="18" fill="none"/>
+    <circle cx="30" cy="144" r="38" stroke="#ffffff" stroke-width="18" fill="none"/>
+    <circle cx="30" cy="256" r="38" stroke="#ffffff" stroke-width="18" fill="none"/>
+    <line x1="130" y1="126" x2="130" y2="162" stroke="#ffffff" stroke-width="18"/>
+    <line x1="130" y1="238" x2="130" y2="274" stroke="#ffffff" stroke-width="18"/>
+    <line x1="98" y1="177" x2="62" y2="155" stroke="#ffffff" stroke-width="18"/>
+    <line x1="98" y1="223" x2="62" y2="245" stroke="#ffffff" stroke-width="18"/>
+  </g>
+</svg>

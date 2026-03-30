@@ -30,7 +30,7 @@ const techStack = [
   { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
   { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
   { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg" },
-  { name: "Kafka", icon: "/assets/icons/kafka.png" },
+  { name: "Kafka", icon: "/assets/icons/kafka.svg" },
   { name: "OpenAI", icon: "/assets/icons/openai.png" },
   { name: "LangChain", icon: "https://cdn.simpleicons.org/langchain/888888" },
   { name: "Terraform", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" },
@@ -360,7 +360,7 @@ const techStack = [
     @apply flex flex-col items-center gap-3 rounded-xl border border-skin-line bg-skin-card px-4 py-5 text-center transition-all duration-200 hover:border-skin-accent hover:shadow-lg;
   }
   .tech-icon {
-    @apply h-7 w-7 opacity-50 transition-opacity duration-200;
+    @apply h-7 w-7 object-contain opacity-50 transition-opacity duration-200;
   }
   .tech-card:hover .tech-icon {
     @apply opacity-90;
