@@ -9,7 +9,8 @@ import Breadcrumbs from "@components/Breadcrumbs.astro";
 <Layout title={`Nosotros | ${SITE.title}`}>
   <Header activeNav="about" />
   <Breadcrumbs />
-  <main id="main-content">
+  <main id="main-content" class="relative">
+    <canvas id="circuit-about" data-circuit-bg class="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-40" aria-hidden="true"></canvas>
 
     <section class="site-container pt-8 pb-20 sm:pb-32">
       <div data-animate>
