@@ -14,7 +14,7 @@ const t = translations[locale].nav;
 const prefix = locale === "es" ? "/es" : "";
 ---
 
-<header>
+<header class="sticky top-0 z-50">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="header-container">
     <div class="header-inner">
@@ -110,7 +110,7 @@ const prefix = locale === "es" ? "/es" : "";
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-white transition-all focus:top-4;
   }
   .header-container {
-    @apply sticky top-0 z-50 w-full border-b border-skin-line bg-skin-fill/80 backdrop-blur-lg;
+    @apply w-full border-b border-skin-line bg-skin-fill/80 backdrop-blur-lg;
   }
   .header-inner {
     @apply mx-auto flex max-w-5xl items-center justify-between px-6 py-4;

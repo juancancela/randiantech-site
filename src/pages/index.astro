@@ -8,11 +8,9 @@ import translations from "../i18n/translations";
 const t = translations.en.home;
 
 const clientLogos = [
-  "GoFundMe",
-  "Financial Times",
-  "Capgemini",
-  "Globant",
-  "Level 3 Communications",
+  { name: "Capgemini", url: "https://www.capgemini.com/" },
+  { name: "INTI", url: "https://www.argentina.gob.ar/inti" },
+  { name: "Chekku", url: "https://www.chekku.co/" },
 ] as const;
 
 const techStack = [
@@ -309,7 +307,7 @@ const techStack = [
         ></div>
         <div class="grid gap-6 sm:grid-cols-3 sm:gap-8">
           <div
-            class="card-flat border border-skin-line bg-skin-card px-8 py-10 text-center"
+            class="card-flat cursor-default border border-skin-line bg-skin-card px-6 py-10 text-center sm:px-8"
             data-animate
             data-animate-delay="100"
           >
@@ -317,7 +315,7 @@ const techStack = [
             <div class="mt-3 text-sm font-medium text-skin-base/60">{t.proofFounded}</div>
           </div>
           <div
-            class="card-flat border border-skin-line bg-skin-card px-8 py-10 text-center"
+            class="card-flat cursor-default border border-skin-line bg-skin-card px-6 py-10 text-center sm:px-8"
             data-animate
             data-animate-delay="200"
           >
@@ -325,11 +323,11 @@ const techStack = [
             <div class="mt-3 text-sm font-medium text-skin-base/60">{t.proofProjects}</div>
           </div>
           <div
-            class="card-flat border border-skin-line bg-skin-card px-8 py-10 text-center"
+            class="card-flat cursor-default border border-skin-line bg-skin-card px-6 py-10 text-center sm:px-8"
             data-animate
             data-animate-delay="300"
           >
-            <div class="text-5xl font-bold tabular-nums text-skin-accent sm:text-6xl">US/LATAM</div>
+            <div class="text-4xl font-bold tracking-tight text-skin-accent sm:text-5xl">US/LATAM</div>
             <div class="mt-3 text-sm font-medium text-skin-base/60">{t.proofPresence}</div>
           </div>
         </div>
@@ -347,13 +345,16 @@ const techStack = [
         >
           {
             clientLogos.map((company, i) => (
-              <div
-                class="text-lg font-semibold tracking-tight text-skin-base/35 transition-colors hover:text-skin-base/65 sm:text-xl"
+              <a
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cursor-pointer text-lg font-semibold tracking-tight text-skin-base/35 no-underline transition-colors hover:text-skin-base/65 sm:text-xl"
                 data-animate
                 data-animate-delay={String((i + 1) * 100)}
               >
-                {company}
-              </div>
+                {company.name}
+              </a>
             ))
           }
         </div>
