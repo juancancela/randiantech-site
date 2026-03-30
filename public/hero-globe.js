@@ -7,9 +7,7 @@
 
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var width, height, cx, cy, radius;
-    var mouse = { x: 0, y: 0 };
     var rotX = -0.3;
-    var rotY = 0;
     var autoRotY = 0;
     var points = [];
     var connections = [];
@@ -102,8 +100,8 @@
     }
 
     function project(x, y, z) {
-      var cosY = Math.cos(autoRotY + rotY);
-      var sinY = Math.sin(autoRotY + rotY);
+      var cosY = Math.cos(autoRotY);
+      var sinY = Math.sin(autoRotY);
       var cosX = Math.cos(rotX);
       var sinX = Math.sin(rotX);
 
@@ -269,14 +267,6 @@
     window.addEventListener("resize", function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(resize, 100);
-    });
-
-    canvas.parentElement.addEventListener("mousemove", function (e) {
-      var rect = canvas.parentElement.getBoundingClientRect();
-      mouse.x = ((e.clientX - rect.left) / rect.width - 0.5) * 0.4;
-      mouse.y = ((e.clientY - rect.top) / rect.height - 0.5) * 0.4;
-      rotY = mouse.x * 0.5;
-      rotX = -0.3 + mouse.y * 0.3;
     });
 
     var observer = new IntersectionObserver(

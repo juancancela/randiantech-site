@@ -12,7 +12,8 @@ const t = translations.en.services;
 <Layout title={`${t.label} | ${SITE.title}`}>
   <Header activeNav="services" />
   <Breadcrumbs />
-  <main id="main-content">
+  <main id="main-content" class="relative">
+    <canvas id="circuit-services-page" data-circuit-bg class="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-40" aria-hidden="true"></canvas>
     <section class="site-container pt-6 pb-16">
       <div data-animate>
         <div class="section-label mb-3">{t.label}</div>
