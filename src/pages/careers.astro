@@ -155,12 +155,9 @@ const positions = [
         </div>
       </div>
     </section>
-  </main>
-  <Footer />
-</Layout>
 
-<!-- Job Details Modal -->
-<div id="job-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <!-- Job Details Modal -->
+    <div id="job-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
   <div class="modal-container">
     <div class="modal-header">
       <div>
@@ -203,6 +200,10 @@ const positions = [
   </div>
 </div>
 
+  </main>
+  <Footer />
+</Layout>
+
 <style>
   .form-input {
     @apply w-full rounded-lg border border-skin-line bg-skin-card px-4 py-2.5 text-sm text-skin-base outline-none transition-colors placeholder:text-skin-base/30 focus:border-skin-accent;
@@ -227,108 +228,134 @@ const positions = [
   }
 </style>
 
-<script>
-  function initCareers() {
-    const jobModal = document.getElementById("job-modal")!;
-    const generalModal = document.getElementById("general-modal")!;
-    const modalTitle = document.getElementById("modal-title")!;
-    const modalType = document.getElementById("modal-type")!;
-    const modalBody = document.getElementById("modal-body")!;
+<script is:inline>
+  (function() {
+    function initCareers() {
+      var jobModal = document.getElementById("job-modal");
+      var generalModal = document.getElementById("general-modal");
+      var modalTitle = document.getElementById("modal-title");
+      var modalType = document.getElementById("modal-type");
+      var modalBody = document.getElementById("modal-body");
+      if (!jobModal || !generalModal) return;
 
-    function openModal(modal: HTMLElement) {
-      modal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
-    }
-    function closeModal(modal: HTMLElement) {
-      modal.classList.add("hidden");
+      jobModal.classList.add("hidden");
+      generalModal.classList.add("hidden");
       document.body.style.overflow = "";
-    }
 
-    function markdownToHtml(md: string): string {
-      return md
-        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-        .replace(/^- (.+)$/gm, "<li>$1</li>")
-        .replace(/(<li>.*<\/li>)/s, "<ul>$1</ul>")
-        .replace(/\n\n/g, "</p><p>")
-        .replace(/\n/g, "<br>");
-    }
-
-    document.querySelectorAll(".job-card").forEach((card) => {
-      card.addEventListener("click", () => {
-        const data = JSON.parse((card as HTMLElement).dataset.job || "{}");
-        modalTitle.textContent = data.title;
-        modalType.textContent = data.type;
-        modalBody.innerHTML = "<p>" + markdownToHtml(data.description) + "</p>";
-        (document.getElementById("modal-linkedin") as HTMLInputElement).value = "";
-        document.getElementById("modal-apply-status")!.classList.add("hidden");
-        openModal(jobModal);
-      });
-    });
-
-    document.getElementById("modal-close")!.addEventListener("click", () => closeModal(jobModal));
-    document.getElementById("general-modal-close")!.addEventListener("click", () => closeModal(generalModal));
-
-    jobModal.addEventListener("click", (e) => { if (e.target === jobModal) closeModal(jobModal); });
-    generalModal.addEventListener("click", (e) => { if (e.target === generalModal) closeModal(generalModal); });
-
-    document.getElementById("open-apply-btn")!.addEventListener("click", () => {
-      (document.getElementById("general-linkedin") as HTMLInputElement).value = "";
-      document.getElementById("general-apply-status")!.classList.add("hidden");
-      openModal(generalModal);
-    });
-
-    async function submitApplication(role: string, linkedinInput: HTMLInputElement, statusEl: HTMLElement, btn: HTMLButtonElement) {
-      const url = linkedinInput.value.trim();
-      if (!url || !url.includes("linkedin.com")) {
-        statusEl.textContent = "Please enter a valid LinkedIn URL";
-        statusEl.className = "mt-3 text-sm text-red-500";
-        statusEl.classList.remove("hidden");
-        return;
+      function openModal(modal) {
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
       }
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      try {
-        const res = await fetch("/api/apply", {
+      function closeModal(modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+
+      function markdownToHtml(md) {
+        return md
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/^- (.+)$/gm, "<li>$1</li>")
+          .replace(/\n\n/g, "</p><p>")
+          .replace(/\n/g, "<br>");
+      }
+
+      document.querySelectorAll(".job-card").forEach(function(card) {
+        card.onclick = function() {
+          var data = JSON.parse(card.dataset.job || "{}");
+          if (modalTitle) modalTitle.textContent = data.title;
+          if (modalType) modalType.textContent = data.type;
+          if (modalBody) modalBody.innerHTML = "<p>" + markdownToHtml(data.description || "") + "</p>";
+          var li = document.getElementById("modal-linkedin");
+          if (li) li.value = "";
+          var st = document.getElementById("modal-apply-status");
+          if (st) st.classList.add("hidden");
+          openModal(jobModal);
+        };
+      });
+
+      var closeBtn = document.getElementById("modal-close");
+      if (closeBtn) closeBtn.onclick = function() { closeModal(jobModal); };
+
+      var genCloseBtn = document.getElementById("general-modal-close");
+      if (genCloseBtn) genCloseBtn.onclick = function() { closeModal(generalModal); };
+
+      jobModal.onclick = function(e) { if (e.target === jobModal) closeModal(jobModal); };
+      generalModal.onclick = function(e) { if (e.target === generalModal) closeModal(generalModal); };
+
+      var openApplyBtn = document.getElementById("open-apply-btn");
+      if (openApplyBtn) {
+        openApplyBtn.onclick = function() {
+          var li = document.getElementById("general-linkedin");
+          if (li) li.value = "";
+          var st = document.getElementById("general-apply-status");
+          if (st) st.classList.add("hidden");
+          openModal(generalModal);
+        };
+      }
+
+      function submitApplication(role, linkedinInput, statusEl, btn) {
+        var url = linkedinInput.value.trim();
+        if (!url || url.indexOf("linkedin.com") === -1) {
+          statusEl.textContent = "Please enter a valid LinkedIn URL";
+          statusEl.className = "mt-3 text-sm text-red-500";
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+        fetch("/api/apply", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ role, linkedinUrl: url }),
+          body: JSON.stringify({ role: role, linkedinUrl: url }),
+        }).then(function(res) {
+          if (res.ok) {
+            statusEl.textContent = "Application sent! We'll be in touch soon.";
+            statusEl.className = "mt-3 text-sm text-green-600";
+            linkedinInput.value = "";
+          } else {
+            throw new Error("Failed");
+          }
+        }).catch(function() {
+          statusEl.textContent = "Something went wrong. Please try again.";
+          statusEl.className = "mt-3 text-sm text-red-500";
+        }).finally(function() {
+          btn.disabled = false;
+          btn.textContent = "Apply \u2192";
         });
-        if (res.ok) {
-          statusEl.textContent = "Application sent! We'll be in touch soon.";
-          statusEl.className = "mt-3 text-sm text-green-600 dark:text-green-400";
-          linkedinInput.value = "";
-        } else {
-          throw new Error("Failed");
-        }
-      } catch {
-        statusEl.textContent = "Something went wrong. Please try again.";
-        statusEl.className = "mt-3 text-sm text-red-500";
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Apply →";
-        statusEl.classList.remove("hidden");
       }
+
+      var applyBtn = document.getElementById("modal-apply-btn");
+      if (applyBtn) {
+        applyBtn.onclick = function() {
+          submitApplication(
+            (modalTitle && modalTitle.textContent) || "Unknown",
+            document.getElementById("modal-linkedin"),
+            document.getElementById("modal-apply-status"),
+            applyBtn
+          );
+        };
+      }
+
+      var genApplyBtn = document.getElementById("general-apply-btn");
+      if (genApplyBtn) {
+        genApplyBtn.onclick = function() {
+          submitApplication(
+            "General application",
+            document.getElementById("general-linkedin"),
+            document.getElementById("general-apply-status"),
+            genApplyBtn
+          );
+        };
+      }
+
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+          closeModal(jobModal);
+          closeModal(generalModal);
+        }
+      });
     }
 
-    document.getElementById("modal-apply-btn")!.addEventListener("click", () => {
-      submitApplication(
-        modalTitle.textContent || "Unknown",
-        document.getElementById("modal-linkedin") as HTMLInputElement,
-        document.getElementById("modal-apply-status")!,
-        document.getElementById("modal-apply-btn") as HTMLButtonElement
-      );
-    });
-
-    document.getElementById("general-apply-btn")!.addEventListener("click", () => {
-      submitApplication(
-        "General application",
-        document.getElementById("general-linkedin") as HTMLInputElement,
-        document.getElementById("general-apply-status")!,
-        document.getElementById("general-apply-btn") as HTMLButtonElement
-      );
-    });
-  }
-
-  initCareers();
-  document.addEventListener("astro:after-swap", initCareers);
+    initCareers();
+    document.addEventListener("astro:after-swap", initCareers);
+  })();
 </script>
