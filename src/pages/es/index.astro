@@ -40,50 +40,16 @@ const techStack = [
 <Layout title={SITE.title} description={SITE.desc}>
   <Header />
   <main id="main-content">
-    <!-- Shared gradient defs for decorative SVGs -->
-    <svg
-      class="pointer-events-none absolute h-0 w-0 overflow-hidden"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <defs>
-        <linearGradient id="home-grad-accent" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" class="home-grad-stop-a"></stop>
-          <stop offset="55%" class="home-grad-stop-b"></stop>
-          <stop offset="100%" class="home-grad-stop-c"></stop>
-        </linearGradient>
-        <linearGradient id="home-grad-soft" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" class="home-grad-stop-soft-a"></stop>
-          <stop offset="100%" class="home-grad-stop-soft-b"></stop>
-        </linearGradient>
-        <radialGradient id="home-grad-orb" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" class="home-grad-orb-a"></stop>
-          <stop offset="70%" class="home-grad-orb-b"></stop>
-        </radialGradient>
-      </defs>
-    </svg>
-
     <section
       id="hero"
-      class="relative !max-w-6xl overflow-hidden border-b border-skin-line/60 bg-skin-fill pt-28 pb-24 sm:pt-40 sm:pb-32 lg:pb-40"
+      class="hero-section relative w-full overflow-hidden border-b border-skin-line/60 bg-skin-fill pt-28 pb-24 sm:pt-40 sm:pb-32 lg:pb-40"
     >
       <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div class="hero-glow hero-glow--tl"></div>
         <div class="hero-glow hero-glow--br"></div>
-        <svg
-          class="home-mesh absolute left-1/2 top-0 h-[min(90vh,720px)] w-[min(140vw,900px)] -translate-x-1/2 opacity-[0.35] dark:opacity-[0.22]"
-          viewBox="0 0 800 800"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 80h800M0 160h800M0 240h800M0 320h800M0 400h800M0 480h800M0 560h800M0 640h800M0 720h800M80 0v800M160 0v800M240 0v800M320 0v800M400 0v800M480 0v800M560 0v800M640 0v800M720 0v800"
-            class="home-mesh-line"></path>
-        </svg>
       </div>
 
-      <div class="relative mx-auto flex max-w-6xl flex-col gap-16 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-20">
+      <div class="relative mx-auto flex max-w-6xl flex-col gap-16 px-4 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12">
         <div class="max-w-2xl lg:max-w-none" data-animate>
           <div class="section-label mb-5">{t.label}</div>
           <h1
@@ -102,87 +68,11 @@ const techStack = [
         </div>
 
         <div
-          class="relative mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none"
+          class="globe-wrapper relative mx-auto aspect-square w-full max-w-md lg:mx-0 lg:max-w-none"
           data-animate
           data-animate-delay="120"
         >
-          <div
-            class="pointer-events-none absolute -right-8 -top-8 h-48 w-48 rounded-full bg-skin-accent/15 blur-3xl"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="pointer-events-none absolute -bottom-10 -left-6 h-40 w-40 rounded-full bg-skin-accent/10 blur-3xl"
-            aria-hidden="true"
-          ></div>
-          <svg
-            class="home-hero-illu relative w-full drop-shadow-sm"
-            viewBox="0 0 480 420"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <rect
-              x="48"
-              y="56"
-              width="384"
-              height="280"
-              rx="28"
-              class="home-illu-frame"></rect>
-            <rect
-              x="72"
-              y="88"
-              width="148"
-              height="96"
-              rx="12"
-              fill="url(#home-grad-soft)"
-              opacity="0.9"></rect>
-            <rect
-              x="236"
-              y="88"
-              width="172"
-              height="44"
-              rx="10"
-              class="home-illu-bar"></rect>
-            <rect
-              x="236"
-              y="148"
-              width="132"
-              height="36"
-              rx="8"
-              class="home-illu-bar-muted"></rect>
-            <rect
-              x="236"
-              y="196"
-              width="172"
-              height="36"
-              rx="8"
-              class="home-illu-bar-muted"></rect>
-            <circle cx="120" cy="248" r="36" fill="url(#home-grad-orb)" opacity="0.85"></circle>
-            <path
-              d="M156 248h52l32 28h72"
-              class="home-illu-wire"></path>
-            <circle cx="312" cy="276" r="14" fill="url(#home-grad-accent)" opacity="0.9"></circle>
-            <circle cx="380" cy="248" r="10" class="home-illu-node"></circle>
-            <circle cx="340" cy="200" r="8" class="home-illu-node-soft"></circle>
-            <circle cx="268" cy="312" r="8" class="home-illu-node-soft"></circle>
-            <path
-              d="M380 248l-40 28M340 200l-28 76M268 312l44-36"
-              class="home-illu-wire-thin"></path>
-            <rect
-              x="72"
-              y="208"
-              width="96"
-              height="12"
-              rx="4"
-              class="home-illu-pill"></rect>
-            <rect
-              x="72"
-              y="232"
-              width="72"
-              height="12"
-              rx="4"
-              class="home-illu-pill-muted"></rect>
-          </svg>
+          <canvas id="hero-globe" class="h-full w-full"></canvas>
         </div>
       </div>
     </section>
@@ -395,7 +285,7 @@ const techStack = [
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            <circle cx="36" cy="36" r="64" stroke="url(#home-grad-accent)" stroke-width="1.5" opacity="0.5"
+            <circle cx="36" cy="36" r="64" stroke="currentColor" stroke-width="1.5" opacity="0.5"
             ></circle>
             <circle cx="56" cy="56" r="40" stroke="currentColor" stroke-width="1" opacity="0.35"></circle>
           </svg>
@@ -408,7 +298,7 @@ const techStack = [
           >
             <path
               d="M120 180c44 0 80-36 80-80S164 20 120 20"
-              stroke="url(#home-grad-accent)"
+              stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               opacity="0.6"></path>
@@ -437,98 +327,17 @@ const techStack = [
 </Layout>
 
 <style>
-  .home-grad-stop-a {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0.85;
+  .hero-section {
+    max-width: 100% !important;
   }
-  .home-grad-stop-b {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0.35;
+
+  .globe-wrapper {
+    min-height: 320px;
   }
-  .home-grad-stop-c {
-    stop-color: rgb(var(--color-text-base));
-    stop-opacity: 0.08;
-  }
-  .home-grad-stop-soft-a {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0.2;
-  }
-  .home-grad-stop-soft-b {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0.05;
-  }
-  .home-grad-orb-a {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0.45;
-  }
-  .home-grad-orb-b {
-    stop-color: rgb(var(--color-accent));
-    stop-opacity: 0;
-  }
-  .home-mesh-line {
-    stroke: rgb(var(--color-border));
-    stroke-width: 1;
-  }
-  .home-illu-frame {
-    stroke: rgb(var(--color-border));
-    stroke-width: 1.5;
-    fill: rgb(var(--color-card));
-    fill-opacity: 0.55;
-  }
-  :global(html[data-theme="dark"]) .home-illu-frame {
-    fill-opacity: 0.35;
-  }
-  .home-illu-bar {
-    fill: rgb(var(--color-accent));
-    fill-opacity: 0.12;
-    stroke: rgb(var(--color-accent));
-    stroke-opacity: 0.25;
-    stroke-width: 1;
-  }
-  .home-illu-bar-muted {
-    fill: rgb(var(--color-text-base));
-    fill-opacity: 0.04;
-    stroke: rgb(var(--color-border));
-    stroke-width: 1;
-  }
-  .home-illu-wire {
-    stroke: rgb(var(--color-accent));
-    stroke-opacity: 0.35;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .home-illu-wire-thin {
-    stroke: rgb(var(--color-accent));
-    stroke-opacity: 0.25;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-  }
-  .home-illu-node {
-    fill: rgb(var(--color-accent));
-    fill-opacity: 0.55;
-    stroke: rgb(var(--color-card));
-    stroke-width: 2;
-  }
-  .home-illu-node-soft {
-    fill: rgb(var(--color-accent));
-    fill-opacity: 0.2;
-    stroke: rgb(var(--color-border));
-    stroke-width: 1;
-  }
-  .home-illu-pill {
-    fill: rgb(var(--color-text-base));
-    fill-opacity: 0.06;
-  }
-  .home-illu-pill-muted {
-    fill: rgb(var(--color-text-base));
-    fill-opacity: 0.04;
-  }
-  .home-hero-illu {
-    display: block;
-    height: auto;
-    width: 100%;
-    max-width: 32rem;
+  @media (min-width: 1024px) {
+    .globe-wrapper {
+      min-height: 440px;
+    }
   }
 
   .card-icon {

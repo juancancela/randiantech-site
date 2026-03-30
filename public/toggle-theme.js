@@ -1,4 +1,4 @@
-const primaryColorScheme = "";
+const primaryColorScheme = "dark";
 
 const currentTheme = localStorage.getItem("theme");
 
