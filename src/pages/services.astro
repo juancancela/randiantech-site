@@ -4,111 +4,99 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import translations from "../i18n/translations";
+
+const t = translations.en.services;
 ---
 
-<Layout title={`Services | ${SITE.title}`}>
+<Layout title={`${t.label} | ${SITE.title}`}>
   <Header activeNav="services" />
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container pt-6 pb-16">
-      <div class="section-label mb-3">Services</div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
-        What we offer
-      </h1>
-      <p class="mt-4 max-w-2xl text-base text-skin-base/70">
-        We focus on three core areas: helping companies adopt AI effectively, providing top engineering talent, and building AI-powered products.
-      </p>
+      <div data-animate>
+        <div class="section-label mb-3">{t.label}</div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+        <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+      </div>
 
       <div class="mt-12 space-y-12">
 
-        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8">
-          <div class="section-label mb-2">01</div>
-          <h2 class="text-2xl font-bold tracking-tight">Enterprise AI Training</h2>
-          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">
-            Practical, hands-on AI training tailored to your organization's needs and industry.
-            We don't teach theory — we build real skills your teams can apply immediately.
-          </p>
+        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8" data-animate>
+          <div class="section-label mb-2">{t.s1Num}</div>
+          <h2 class="text-2xl font-bold tracking-tight">{t.s1Title}</h2>
+          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">{t.s1Desc}</p>
           <div class="mt-6 grid gap-3 sm:grid-cols-2">
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">Prompt Engineering & LLM Fundamentals</div>
-              <p class="mt-1 text-xs text-skin-base/60">From basics to advanced techniques for getting the most out of large language models.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="100">
+              <div class="text-sm font-semibold">{t.s1a}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s1aDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">RAG Pipeline Architecture</div>
-              <p class="mt-1 text-xs text-skin-base/60">Design and build Retrieval-Augmented Generation systems for your specific domain.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="200">
+              <div class="text-sm font-semibold">{t.s1b}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s1bDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">AI Agent Development</div>
-              <p class="mt-1 text-xs text-skin-base/60">Build autonomous agent workflows using OpenAI, LangChain, and custom architectures.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="300">
+              <div class="text-sm font-semibold">{t.s1c}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s1cDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">AI Strategy Workshops</div>
-              <p class="mt-1 text-xs text-skin-base/60">Help leadership teams identify high-impact AI use cases and build a practical roadmap.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="400">
+              <div class="text-sm font-semibold">{t.s1d}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s1dDesc}</p>
             </div>
           </div>
         </div>
 
-        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8">
-          <div class="section-label mb-2">02</div>
-          <h2 class="text-2xl font-bold tracking-tight">Staff Augmentation</h2>
-          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">
-            Extend your team with senior engineers who integrate seamlessly into your workflow
-            and start delivering from day one. All developers work on US timezones.
-          </p>
+        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8" data-animate>
+          <div class="section-label mb-2">{t.s2Num}</div>
+          <h2 class="text-2xl font-bold tracking-tight">{t.s2Title}</h2>
+          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">{t.s2Desc}</p>
           <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">Full-Stack Engineers</div>
-              <p class="mt-1 text-xs text-skin-base/60">React, Node.js, TypeScript, Python — end-to-end product development.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="100">
+              <div class="text-sm font-semibold">{t.s2a}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s2aDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">Backend Engineers</div>
-              <p class="mt-1 text-xs text-skin-base/60">APIs, microservices, distributed systems — .NET, Java, Kotlin, Go.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="200">
+              <div class="text-sm font-semibold">{t.s2b}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s2bDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">QA Engineers</div>
-              <p class="mt-1 text-xs text-skin-base/60">Automation with Cypress, Selenium, and manual testing expertise.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="300">
+              <div class="text-sm font-semibold">{t.s2c}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s2cDesc}</p>
             </div>
           </div>
         </div>
 
-        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8">
-          <div class="section-label mb-2">03</div>
-          <h2 class="text-2xl font-bold tracking-tight">AI Product Development</h2>
-          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">
-            We build AI-powered products from concept to production. Not science projects —
-            reliable, scalable systems that solve real business problems.
-          </p>
+        <div class="card-flat rounded-xl border border-skin-line p-6 sm:p-8" data-animate>
+          <div class="section-label mb-2">{t.s3Num}</div>
+          <h2 class="text-2xl font-bold tracking-tight">{t.s3Title}</h2>
+          <p class="mt-3 max-w-3xl text-base text-skin-base/70 leading-relaxed">{t.s3Desc}</p>
           <div class="mt-6 grid gap-3 sm:grid-cols-2">
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">LLM Integration</div>
-              <p class="mt-1 text-xs text-skin-base/60">Content generation, summarization, classification — integrated into your product.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="100">
+              <div class="text-sm font-semibold">{t.s3a}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s3aDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">Custom Agent Architectures</div>
-              <p class="mt-1 text-xs text-skin-base/60">Multi-step agent workflows for complex business automation.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="200">
+              <div class="text-sm font-semibold">{t.s3b}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s3bDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">RAG Systems</div>
-              <p class="mt-1 text-xs text-skin-base/60">Domain-specific knowledge retrieval with vector databases and embeddings.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="300">
+              <div class="text-sm font-semibold">{t.s3c}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s3cDesc}</p>
             </div>
-            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4">
-              <div class="text-sm font-semibold">Cloud & Infrastructure</div>
-              <p class="mt-1 text-xs text-skin-base/60">AWS, GCP, Azure — CI/CD, observability, and infrastructure as code.</p>
+            <div class="rounded-lg border border-skin-line bg-skin-card-muted p-4" data-animate data-animate-delay="400">
+              <div class="text-sm font-semibold">{t.s3d}</div>
+              <p class="mt-1 text-xs text-skin-base/60">{t.s3dDesc}</p>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="mt-16 rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12">
-        <h2 class="text-2xl font-bold tracking-tight">
-          Let's find the right fit
-        </h2>
-        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">
-          Every engagement starts with a conversation. Tell us what you need and we'll propose the best approach.
-        </p>
+      <div class="mt-16 rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12" data-animate>
+        <h2 class="text-2xl font-bold tracking-tight">{t.ctaTitle}</h2>
+        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">{t.ctaDesc}</p>
         <div class="mt-6">
-          <a href="/contact/" class="btn-primary">Start a conversation &rarr;</a>
+          <a href="/contact/" class="btn-primary">{t.ctaBtn} &rarr;</a>
         </div>
       </div>
     </section>

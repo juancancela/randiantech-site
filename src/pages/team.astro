@@ -93,20 +93,24 @@ function getInitials(name: string): string {
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container pt-6 pb-16">
-      <div class="section-label mb-3">Our People</div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Meet the team</h1>
-      <p class="mt-4 max-w-2xl text-base text-skin-base/70">
-        Engineers, architects, and technical leaders with deep experience across multiple industries.
-      </p>
+      <div data-animate>
+        <div class="section-label mb-3">Our People</div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Meet the team</h1>
+        <p class="mt-4 max-w-2xl text-base text-skin-base/70">
+          Engineers, architects, and technical leaders with deep experience across multiple industries.
+        </p>
+      </div>
 
-      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight">Leadership</h2>
+      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight" data-animate>Leadership</h2>
       <div class="grid gap-4 sm:grid-cols-2">
-        {leadership.map((member) => (
+        {leadership.map((member, i) => (
           <a
             href={member.url}
             target="_blank"
             rel="noopener noreferrer"
             class="card group"
+            data-animate
+            data-animate-delay={String((i + 1) * 100)}
           >
             <div class="flex items-start gap-4">
               <div class="avatar">{getInitials(member.name)}</div>
@@ -122,14 +126,16 @@ function getInitials(name: string): string {
         ))}
       </div>
 
-      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight">Engineering Team</h2>
+      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight" data-animate>Engineering Team</h2>
       <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {staff.map((member) => (
+        {staff.map((member, i) => (
           <a
             href={member.url}
             target="_blank"
             rel="noopener noreferrer"
             class="card group"
+            data-animate
+            data-animate-delay={String((i + 1) * 80)}
           >
             <div class="flex items-start gap-3">
               <div class="avatar avatar-sm">{getInitials(member.name)}</div>

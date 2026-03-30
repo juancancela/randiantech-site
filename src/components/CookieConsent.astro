@@ -1,0 +1,72 @@
+---
+import { getLocaleFromUrl } from "../i18n/utils";
+
+const locale = getLocaleFromUrl(Astro.url);
+const text = locale === "es" 
+  ? { message: "Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptás nuestra", policy: "política de privacidad", accept: "Aceptar", decline: "Rechazar" }
+  : { message: "We use cookies to enhance your experience. By continuing to browse, you agree to our", policy: "privacy policy", accept: "Accept", decline: "Decline" };
+const prefix = locale === "es" ? "/es" : "";
+---
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-inner">
+    <p class="cookie-text">
+      {text.message} <a href={`${prefix}/privacy/`} class="cookie-link">{text.policy}</a>.
+    </p>
+    <div class="cookie-actions">
+      <button id="cookie-decline" class="cookie-btn-decline">{text.decline}</button>
+      <button id="cookie-accept" class="cookie-btn-accept">{text.accept}</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    @apply fixed bottom-0 left-0 right-0 z-50 translate-y-full border-t border-skin-line bg-skin-fill/95 backdrop-blur-lg transition-transform duration-500 ease-out;
+  }
+  .cookie-banner.show {
+    @apply translate-y-0;
+  }
+  .cookie-inner {
+    @apply mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-4 sm:flex-row sm:justify-between;
+  }
+  .cookie-text {
+    @apply text-sm text-skin-base/70;
+  }
+  .cookie-link {
+    @apply text-skin-accent underline-offset-2 hover:underline;
+  }
+  .cookie-actions {
+    @apply flex shrink-0 gap-3;
+  }
+  .cookie-btn-decline {
+    @apply rounded-lg border border-skin-line px-4 py-2 text-xs font-medium text-skin-base/60 transition-colors hover:border-skin-accent hover:text-skin-base;
+  }
+  .cookie-btn-accept {
+    @apply rounded-lg bg-skin-accent px-4 py-2 text-xs font-semibold text-white transition-opacity hover:opacity-90;
+  }
+</style>
+
+<script>
+  function initCookieBanner() {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("cookie-accept");
+    const declineBtn = document.getElementById("cookie-decline");
+    if (!banner) return;
+
+    const consent = localStorage.getItem("cookie-consent");
+    if (!consent) {
+      setTimeout(() => banner.classList.add("show"), 1000);
+    }
+
+    function hideBanner(value: string) {
+      localStorage.setItem("cookie-consent", value);
+      banner.classList.remove("show");
+    }
+
+    acceptBtn?.addEventListener("click", () => hideBanner("accepted"));
+    declineBtn?.addEventListener("click", () => hideBanner("declined"));
+  }
+  initCookieBanner();
+  document.addEventListener("astro:after-swap", initCookieBanner);
+</script>

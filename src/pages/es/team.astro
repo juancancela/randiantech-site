@@ -9,21 +9,81 @@ import translations from "../../i18n/translations";
 const t = translations.es.team;
 
 const leadership = [
-  { name: "Juan Carlos Cancela", position: "CEO & Co-founder", desc: "Motivated, action-oriented technology enthusiast with experience on multiple industries designing cutting-edge Web API-centric applications.", url: "http://juancancela.work/" },
-  { name: "Guillermo Ismael Mulvihill", position: "COO & Co-founder", desc: "Extremely hard worker and technology lover with vast experience in leadership and team management as well as in the world of finances and investments.", url: "https://www.linkedin.com/in/guillermo-ismael-mulvihill-965384b8/" },
+  {
+    name: "Juan Carlos Cancela",
+    position: "CEO & Co-founder",
+    desc: "Motivated, action-oriented technology enthusiast with experience on multiple industries designing cutting-edge Web API-centric applications.",
+    url: "http://juancancela.work/",
+  },
+  {
+    name: "Guillermo Ismael Mulvihill",
+    position: "COO & Co-founder",
+    desc: "Extremely hard worker and technology lover with vast experience in leadership and team management as well as in the world of finances and investments.",
+    url: "https://www.linkedin.com/in/guillermo-ismael-mulvihill-965384b8/",
+  },
 ];
 
 const staff = [
-  { name: "Malcolm Mancuso", position: "Full Stack Developer", desc: "React, Javascript, NodeJS, MongoDB, Heroku", url: "https://www.linkedin.com/in/malcolm-ezequiel-mancuso-400b42192/" },
-  { name: "Lucas Campana", position: "Full Stack Developer", desc: "Python, React, Javascript, NodeJS, ExpressJS, MongoDB, Java", url: "https://www.linkedin.com/in/lukebelll/" },
-  { name: "Nancy Figueroa", position: "Full Stack Developer", desc: "ReactJS, NodeJS, ExpressJS, MongoDB, GraphQL, Apollo", url: "https://www.linkedin.com/in/nancy-figueroa-0a763725/" },
-  { name: "Leonardo Palumbo", position: "Backend Developer", desc: ".NET, C#, Web API, Web Services, Java", url: "https://www.linkedin.com/in/leonardo-dar%C3%ADo-palumbo-93a56b178/" },
-  { name: "Martin Ruffa", position: "Backend Developer", desc: ".NET, C#, Web API, Java, MVC, HTML5, CSS3, Javascript", url: "https://www.linkedin.com/in/martin-ruffa-5188b676/" },
-  { name: "Leandro Jodor", position: "Frontend Developer", desc: "ReactJS, Javascript, NodeJS, ExpressJS, MongoDB", url: "https://www.linkedin.com/in/leandro-martin-jodor-211859119/" },
-  { name: "Esteban Pistoia", position: "QA Automation Engineer", desc: "Selenium Webdriver, Java, Cypress, WebdriverIO", url: "https://www.linkedin.com/in/esteban-francisco-pistoia-01080a168/" },
-  { name: "Florencia Jodor", position: "QA Automation Engineer", desc: "Cypress, WebdriverIO", url: "https://www.linkedin.com/in/maria-florencia-jodor-2a25151a2/" },
-  { name: "Laura Palumbo", position: "QA Analyst", desc: "Functional testing, Non functional (Jmeter), SQL, HTML, CSS", url: "https://www.linkedin.com/in/laura-palumbo-4986351a8/" },
-  { name: "Pablo Carnelli", position: "QA Analyst", desc: "Functional testing, API testing (Postman, SoapUI), SQL", url: "https://www.linkedin.com/in/pablo-carnelli-12333812/" },
+  {
+    name: "Malcolm Mancuso",
+    position: "Full Stack Developer",
+    desc: "React, Javascript, NodeJS, MongoDB, Heroku",
+    url: "https://www.linkedin.com/in/malcolm-ezequiel-mancuso-400b42192/",
+  },
+  {
+    name: "Lucas Campana",
+    position: "Full Stack Developer",
+    desc: "Python, React, Javascript, NodeJS, ExpressJS, MongoDB, Java",
+    url: "https://www.linkedin.com/in/lukebelll/",
+  },
+  {
+    name: "Nancy Figueroa",
+    position: "Full Stack Developer",
+    desc: "ReactJS, NodeJS, ExpressJS, MongoDB, GraphQL, Apollo",
+    url: "https://www.linkedin.com/in/nancy-figueroa-0a763725/",
+  },
+  {
+    name: "Leonardo Palumbo",
+    position: "Backend Developer",
+    desc: ".NET, C#, Web API, Web Services, Java",
+    url: "https://www.linkedin.com/in/leonardo-dar%C3%ADo-palumbo-93a56b178/",
+  },
+  {
+    name: "Martin Ruffa",
+    position: "Backend Developer",
+    desc: ".NET, C#, Web API, Java, MVC, HTML5, CSS3, Javascript",
+    url: "https://www.linkedin.com/in/martin-ruffa-5188b676/",
+  },
+  {
+    name: "Leandro Jodor",
+    position: "Frontend Developer",
+    desc: "ReactJS, Javascript, NodeJS, ExpressJS, MongoDB",
+    url: "https://www.linkedin.com/in/leandro-martin-jodor-211859119/",
+  },
+  {
+    name: "Esteban Pistoia",
+    position: "QA Automation Engineer",
+    desc: "Selenium Webdriver, Java, Cypress, WebdriverIO",
+    url: "https://www.linkedin.com/in/esteban-francisco-pistoia-01080a168/",
+  },
+  {
+    name: "Florencia Jodor",
+    position: "QA Automation Engineer",
+    desc: "Cypress, WebdriverIO",
+    url: "https://www.linkedin.com/in/maria-florencia-jodor-2a25151a2/",
+  },
+  {
+    name: "Laura Palumbo",
+    position: "QA Analyst",
+    desc: "Functional testing, Non functional (Jmeter), SQL, HTML, CSS",
+    url: "https://www.linkedin.com/in/laura-palumbo-4986351a8/",
+  },
+  {
+    name: "Pablo Carnelli",
+    position: "QA Analyst",
+    desc: "Functional testing, API testing (Postman, SoapUI), SQL",
+    url: "https://www.linkedin.com/in/pablo-carnelli-12333812/",
+  },
 ];
 
 function getInitials(name: string): string {
@@ -36,30 +96,50 @@ function getInitials(name: string): string {
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container pt-6 pb-16">
-      <div class="section-label mb-3">{t.label}</div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
-      <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+      <div data-animate>
+        <div class="section-label mb-3">{t.label}</div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+        <p class="mt-4 max-w-2xl text-base text-skin-base/70">
+          {t.desc}
+        </p>
+      </div>
 
-      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight">{t.leadership}</h2>
+      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight" data-animate>{t.leadership}</h2>
       <div class="grid gap-4 sm:grid-cols-2">
-        {leadership.map((member) => (
-          <a href={member.url} target="_blank" rel="noopener noreferrer" class="card group">
+        {leadership.map((member, i) => (
+          <a
+            href={member.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card group"
+            data-animate
+            data-animate-delay={String((i + 1) * 100)}
+          >
             <div class="flex items-start gap-4">
               <div class="avatar">{getInitials(member.name)}</div>
               <div>
                 <div class="text-base font-semibold group-hover:text-skin-accent transition-colors">{member.name}</div>
                 <div class="text-xs font-medium text-skin-accent">{member.position}</div>
-                <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">{member.desc}</p>
+                <p class="mt-2 text-sm text-skin-base/60 leading-relaxed">
+                  {member.desc}
+                </p>
               </div>
             </div>
           </a>
         ))}
       </div>
 
-      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight">{t.engineering}</h2>
+      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight" data-animate>{t.engineering}</h2>
       <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {staff.map((member) => (
-          <a href={member.url} target="_blank" rel="noopener noreferrer" class="card group">
+        {staff.map((member, i) => (
+          <a
+            href={member.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="card group"
+            data-animate
+            data-animate-delay={String((i + 1) * 80)}
+          >
             <div class="flex items-start gap-3">
               <div class="avatar avatar-sm">{getInitials(member.name)}</div>
               <div>

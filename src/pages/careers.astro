@@ -4,77 +4,331 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import translations from "../i18n/translations";
+
+const t = translations.en.careers;
 
 const positions = [
   {
-    title: "FullStack Developer",
-    desc: "React, Javascript, NodeJS, MongoDB, Heroku.",
+    title: "AI Engineer",
+    type: "Full-time · Remote",
+    summary: "Build production AI systems — LLM integrations, RAG pipelines, and agent architectures.",
+    description: `We're looking for an AI Engineer to design and build production-ready AI systems for our clients. You'll work on LLM integrations, RAG pipelines, autonomous agent architectures, and intelligent automation.
+
+**What you'll do:**
+- Design and implement LLM-powered features (chat, summarization, classification, generation)
+- Build RAG systems with vector databases (Pinecone, Weaviate, pgvector)
+- Develop multi-step agent workflows using LangChain, CrewAI, or custom frameworks
+- Evaluate and fine-tune models for specific use cases
+- Collaborate with client engineering teams to integrate AI into existing products
+
+**What we're looking for:**
+- 3+ years of software engineering experience
+- 1+ year of hands-on experience with LLMs and AI/ML in production
+- Strong Python skills; TypeScript is a plus
+- Experience with OpenAI, Anthropic, or similar APIs
+- Familiarity with vector databases and embedding models
+- Solid understanding of prompt engineering and retrieval strategies`,
   },
   {
-    title: "Frontend Developer",
-    desc: "React, TypeScript, Next.js, modern CSS.",
+    title: "Full-Stack Developer",
+    type: "Full-time · Remote",
+    summary: "End-to-end product development with React, Node.js, TypeScript, and Python.",
+    description: `We're hiring a Full-Stack Developer to join client teams and build modern web applications from end to end. You'll work on greenfield products and mature codebases alike, with a focus on quality, performance, and developer experience.
+
+**What you'll do:**
+- Build and maintain full-stack web applications (React, Next.js, Node.js)
+- Design and implement REST and GraphQL APIs
+- Work closely with product and design teams in agile sprints
+- Write tests, participate in code reviews, and mentor junior developers
+- Contribute to architecture decisions and technical roadmaps
+
+**What we're looking for:**
+- 5+ years of professional experience in full-stack development
+- Expert-level TypeScript and React
+- Strong backend skills (Node.js, Express, NestJS, or similar)
+- Experience with relational and NoSQL databases
+- Comfortable working in US timezones with English-speaking teams
+- CI/CD, Docker, and cloud platform experience (AWS or GCP)`,
   },
   {
-    title: "Backend Developer",
-    desc: "Node.js, Python, GraphQL, REST APIs, microservices.",
+    title: "Data Engineer",
+    type: "Full-time · Remote",
+    summary: "Design data pipelines, build ETL processes, and enable AI-ready data infrastructure.",
+    description: `We need a Data Engineer to help our clients build robust data infrastructure that powers analytics and AI systems. You'll design pipelines, manage data warehouses, and ensure data quality at scale.
+
+**What you'll do:**
+- Design and build scalable ETL/ELT pipelines
+- Manage data warehouses (Snowflake, BigQuery, Redshift)
+- Build streaming data pipelines with Kafka, Kinesis, or similar
+- Implement data quality monitoring and validation
+- Collaborate with AI engineers to prepare training data and feature stores
+
+**What we're looking for:**
+- 4+ years of experience in data engineering
+- Strong SQL and Python skills
+- Experience with Apache Spark, dbt, or Airflow
+- Familiarity with cloud data platforms (AWS, GCP, or Azure)
+- Understanding of data modeling and warehouse design
+- Experience with streaming architectures is a plus`,
   },
   {
     title: "QA Automation Engineer",
-    desc: "Selenium, Cypress, WebdriverIO, CI/CD integration.",
+    type: "Full-time · Remote",
+    summary: "Build test automation frameworks and ensure product quality across the stack.",
+    description: `We're looking for a QA Automation Engineer to build and maintain test automation frameworks for our client projects. You'll ensure quality across web, API, and mobile platforms.
+
+**What you'll do:**
+- Design and implement test automation strategies
+- Build E2E test suites with Cypress, Playwright, or Selenium
+- Create API test suites with Postman, REST Assured, or similar
+- Integrate tests into CI/CD pipelines
+- Perform performance and load testing when needed
+- Collaborate with developers to improve testability and quality
+
+**What we're looking for:**
+- 4+ years of experience in QA with strong automation focus
+- Expert in at least one modern test framework (Cypress, Playwright, Selenium)
+- Strong programming skills (JavaScript/TypeScript or Java)
+- Experience with CI/CD integration (GitHub Actions, Jenkins)
+- API testing and performance testing experience
+- Excellent attention to detail and communication skills`,
   },
   {
-    title: "QA Manual",
-    desc: "Functional, non-functional, SQL, API testing.",
-  },
-  {
-    title: "AI/ML Engineer",
-    desc: "LLM integration, RAG pipelines, agent architectures, Python.",
+    title: "DevOps / Cloud Engineer",
+    type: "Full-time · Remote",
+    summary: "Build and manage cloud infrastructure, CI/CD pipelines, and deployment automation.",
+    description: `We're hiring a DevOps/Cloud Engineer to help our clients build reliable, scalable infrastructure. You'll work on cloud architecture, CI/CD, containerization, and monitoring.
+
+**What you'll do:**
+- Design and manage cloud infrastructure on AWS, GCP, or Azure
+- Build and maintain CI/CD pipelines (GitHub Actions, GitLab CI, Jenkins)
+- Containerize applications with Docker and orchestrate with Kubernetes
+- Implement infrastructure as code with Terraform or Pulumi
+- Set up monitoring, alerting, and observability (Datadog, Grafana, CloudWatch)
+- Ensure security best practices and compliance
+
+**What we're looking for:**
+- 4+ years of DevOps/Cloud engineering experience
+- Strong experience with at least one major cloud provider
+- Expert in Docker and Kubernetes
+- Infrastructure as Code experience (Terraform preferred)
+- Scripting skills (Bash, Python)
+- Understanding of networking, security, and cost optimization`,
   },
 ];
 ---
 
-<Layout title={`Careers | ${SITE.title}`}>
+<Layout title={`${t.label} | ${SITE.title}`}>
   <Header activeNav="careers" />
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container pt-6 pb-16">
-      <div class="section-label mb-3">Join Us</div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Careers at Randiantech</h1>
-      <p class="mt-4 max-w-2xl text-base text-skin-base/70">
-        We're always looking for talented engineers who are passionate about building great software and exploring the frontier of AI.
-      </p>
+      <div data-animate>
+        <div class="section-label mb-3">{t.label}</div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+        <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+      </div>
 
-      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight">Open Positions</h2>
-      <div class="grid gap-3 sm:grid-cols-2">
-        {positions.map((position) => (
-          <a
-            href={`mailto:info@randiantech.com?subject=I'm interested in the ${position.title} position`}
-            class="card group"
+      <h2 class="mt-12 mb-6 text-xl font-bold tracking-tight" data-animate>{t.openPositions}</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {positions.map((pos, i) => (
+          <button
+            class="card group text-left cursor-pointer job-card"
+            data-job={JSON.stringify({ title: pos.title, type: pos.type, description: pos.description })}
+            data-animate
+            data-animate-delay={String((i + 1) * 100)}
           >
-            <div class="text-base font-semibold group-hover:text-skin-accent transition-colors">{position.title}</div>
-            <p class="mt-2 text-sm text-skin-base/60">{position.desc}</p>
-            <div class="mt-3 text-xs font-medium text-skin-accent">Apply &rarr;</div>
-          </a>
+            <div class="text-base font-semibold group-hover:text-skin-accent transition-colors">{pos.title}</div>
+            <div class="mt-1 text-xs text-skin-accent">{pos.type}</div>
+            <p class="mt-3 text-sm text-skin-base/60">{pos.summary}</p>
+            <div class="mt-4 text-xs font-medium text-skin-accent">View details &rarr;</div>
+          </button>
         ))}
       </div>
 
-      <div class="mt-16 rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12">
-        <h2 class="text-2xl font-bold tracking-tight">
-          Don't see your role?
-        </h2>
-        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">
-          We're always interested in hearing from great engineers. Send us your CV and let's talk.
-        </p>
+      <div class="mt-16 rounded-2xl bg-skin-card-muted p-8 text-center sm:p-12" data-animate>
+        <h2 class="text-2xl font-bold tracking-tight">{t.noRoleTitle}</h2>
+        <p class="mx-auto mt-3 max-w-xl text-base text-skin-base/60">{t.noRoleDesc}</p>
         <div class="mt-6">
-          <a
-            href="mailto:info@randiantech.com?subject=I'm interested to join the team!"
-            class="btn-primary"
-          >
-            Get in touch &rarr;
-          </a>
+          <button id="open-apply-btn" class="btn-primary">{t.noRoleBtn} &rarr;</button>
         </div>
       </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<!-- Job Details Modal -->
+<div id="job-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-container">
+    <div class="modal-header">
+      <div>
+        <h2 id="modal-title" class="text-xl font-bold"></h2>
+        <p id="modal-type" class="mt-1 text-sm text-skin-accent"></p>
+      </div>
+      <button id="modal-close" class="modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+    <div id="modal-body" class="modal-body prose max-w-none"></div>
+    <div id="modal-apply-section" class="modal-footer">
+      <div id="apply-form-wrapper">
+        <p class="text-sm font-medium mb-3">Apply for this position</p>
+        <div class="flex gap-3">
+          <input type="url" id="modal-linkedin" placeholder="Your LinkedIn profile URL" class="form-input flex-1" />
+          <button id="modal-apply-btn" class="btn-primary whitespace-nowrap">Apply &rarr;</button>
+        </div>
+        <p id="modal-apply-status" class="mt-3 text-sm hidden"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- General Apply Modal (Don't see your role) -->
+<div id="general-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 class="text-xl font-bold">Join the team</h2>
+      <button id="general-modal-close" class="modal-close-btn" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p class="text-sm text-skin-base/70">Send us your LinkedIn profile and we'll reach out if there's a match.</p>
+    </div>
+    <div class="modal-footer">
+      <div class="flex gap-3">
+        <input type="url" id="general-linkedin" placeholder="Your LinkedIn profile URL" class="form-input flex-1" />
+        <button id="general-apply-btn" class="btn-primary whitespace-nowrap">Send &rarr;</button>
+      </div>
+      <p id="general-apply-status" class="mt-3 text-sm hidden"></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-input {
+    @apply w-full rounded-lg border border-skin-line bg-skin-card px-4 py-2.5 text-sm text-skin-base outline-none transition-colors placeholder:text-skin-base/30 focus:border-skin-accent;
+  }
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4;
+  }
+  .modal-container {
+    @apply w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-2xl border border-skin-line bg-skin-fill shadow-2xl flex flex-col;
+  }
+  .modal-header {
+    @apply flex items-start justify-between p-6 border-b border-skin-line;
+  }
+  .modal-close-btn {
+    @apply text-2xl text-skin-base/40 hover:text-skin-base transition-colors leading-none;
+  }
+  .modal-body {
+    @apply p-6 overflow-y-auto flex-1;
+  }
+  .modal-footer {
+    @apply p-6 border-t border-skin-line;
+  }
+</style>
+
+<script>
+  function initCareers() {
+    const jobModal = document.getElementById("job-modal")!;
+    const generalModal = document.getElementById("general-modal")!;
+    const modalTitle = document.getElementById("modal-title")!;
+    const modalType = document.getElementById("modal-type")!;
+    const modalBody = document.getElementById("modal-body")!;
+
+    function openModal(modal: HTMLElement) {
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(modal: HTMLElement) {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function markdownToHtml(md: string): string {
+      return md
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/^- (.+)$/gm, "<li>$1</li>")
+        .replace(/(<li>.*<\/li>)/s, "<ul>$1</ul>")
+        .replace(/\n\n/g, "</p><p>")
+        .replace(/\n/g, "<br>");
+    }
+
+    document.querySelectorAll(".job-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const data = JSON.parse((card as HTMLElement).dataset.job || "{}");
+        modalTitle.textContent = data.title;
+        modalType.textContent = data.type;
+        modalBody.innerHTML = "<p>" + markdownToHtml(data.description) + "</p>";
+        (document.getElementById("modal-linkedin") as HTMLInputElement).value = "";
+        document.getElementById("modal-apply-status")!.classList.add("hidden");
+        openModal(jobModal);
+      });
+    });
+
+    document.getElementById("modal-close")!.addEventListener("click", () => closeModal(jobModal));
+    document.getElementById("general-modal-close")!.addEventListener("click", () => closeModal(generalModal));
+
+    jobModal.addEventListener("click", (e) => { if (e.target === jobModal) closeModal(jobModal); });
+    generalModal.addEventListener("click", (e) => { if (e.target === generalModal) closeModal(generalModal); });
+
+    document.getElementById("open-apply-btn")!.addEventListener("click", () => {
+      (document.getElementById("general-linkedin") as HTMLInputElement).value = "";
+      document.getElementById("general-apply-status")!.classList.add("hidden");
+      openModal(generalModal);
+    });
+
+    async function submitApplication(role: string, linkedinInput: HTMLInputElement, statusEl: HTMLElement, btn: HTMLButtonElement) {
+      const url = linkedinInput.value.trim();
+      if (!url || !url.includes("linkedin.com")) {
+        statusEl.textContent = "Please enter a valid LinkedIn URL";
+        statusEl.className = "mt-3 text-sm text-red-500";
+        statusEl.classList.remove("hidden");
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+      try {
+        const res = await fetch("/api/apply", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ role, linkedinUrl: url }),
+        });
+        if (res.ok) {
+          statusEl.textContent = "Application sent! We'll be in touch soon.";
+          statusEl.className = "mt-3 text-sm text-green-600 dark:text-green-400";
+          linkedinInput.value = "";
+        } else {
+          throw new Error("Failed");
+        }
+      } catch {
+        statusEl.textContent = "Something went wrong. Please try again.";
+        statusEl.className = "mt-3 text-sm text-red-500";
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Apply →";
+        statusEl.classList.remove("hidden");
+      }
+    }
+
+    document.getElementById("modal-apply-btn")!.addEventListener("click", () => {
+      submitApplication(
+        modalTitle.textContent || "Unknown",
+        document.getElementById("modal-linkedin") as HTMLInputElement,
+        document.getElementById("modal-apply-status")!,
+        document.getElementById("modal-apply-btn") as HTMLButtonElement
+      );
+    });
+
+    document.getElementById("general-apply-btn")!.addEventListener("click", () => {
+      submitApplication(
+        "General application",
+        document.getElementById("general-linkedin") as HTMLInputElement,
+        document.getElementById("general-apply-status")!,
+        document.getElementById("general-apply-btn") as HTMLButtonElement
+      );
+    });
+  }
+
+  initCareers();
+  document.addEventListener("astro:after-swap", initCareers);
+</script>

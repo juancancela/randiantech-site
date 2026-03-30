@@ -14,11 +14,13 @@ const t = translations.es.contact;
   <Breadcrumbs />
   <main id="main-content">
     <section class="site-container pt-6 pb-16">
-      <div class="section-label mb-3">{t.label}</div>
-      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
-      <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+      <div data-animate>
+        <div class="section-label mb-3">{t.label}</div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{t.title}</h1>
+        <p class="mt-4 max-w-2xl text-base text-skin-base/70">{t.desc}</p>
+      </div>
 
-      <div class="mt-10 grid gap-3 sm:grid-cols-3">
+      <div class="mt-10 grid gap-3 sm:grid-cols-3" data-animate data-animate-delay="100">
         <a href="mailto:hello@randiantech.com" class="card group text-center">
           <div class="text-xs font-semibold uppercase tracking-wider text-skin-base/40">{t.email}</div>
           <div class="mt-2 text-sm font-medium group-hover:text-skin-accent transition-colors">hello@randiantech.com</div>
@@ -33,7 +35,7 @@ const t = translations.es.contact;
         </a>
       </div>
 
-      <div class="mt-12">
+      <div class="mt-12" data-animate data-animate-delay="200">
         <h2 class="text-xl font-bold tracking-tight">{t.formTitle}</h2>
         <form id="contact-form" class="mt-6">
           <div class="grid gap-4 sm:grid-cols-2">
@@ -58,14 +60,14 @@ const t = translations.es.contact;
             <label for="comments" class="form-label">{t.message} *</label>
             <textarea id="comments" name="comments" required rows="5" class="form-input resize-y"></textarea>
           </div>
-          <div class="mt-6">
-            <button type="submit" class="btn-primary">{t.submit} &rarr;</button>
+          <div class="mt-6 flex items-center gap-4">
+            <button type="submit" id="contact-submit" class="btn-primary">{t.submit} &rarr;</button>
+            <p id="form-status" class="text-sm hidden"></p>
           </div>
-          <p id="form-status" class="mt-4 text-sm hidden"></p>
         </form>
       </div>
 
-      <div class="mt-16">
+      <div class="mt-16" data-animate>
         <h2 class="text-xl font-bold tracking-tight">{t.expectTitle}</h2>
         <div class="mt-6 grid gap-4 sm:grid-cols-3">
           <div class="card-flat rounded-xl border border-skin-line p-5">
@@ -103,17 +105,46 @@ const t = translations.es.contact;
   function initContactForm() {
     const form = document.getElementById("contact-form") as HTMLFormElement;
     const status = document.getElementById("form-status");
-    if (!form || !status) return;
-    form.addEventListener("submit", (e) => {
+    const submitBtn = document.getElementById("contact-submit") as HTMLButtonElement;
+    if (!form || !status || !submitBtn) return;
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando...";
+      status.classList.add("hidden");
+
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      const subject = encodeURIComponent("Contacto desde randiantech.com");
-      const body = encodeURIComponent(`Nombre: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nTeléfono: ${data.phone || "N/A"}\n\n${data.comments}`);
-      window.location.href = `mailto:hello@randiantech.com?subject=${subject}&body=${body}`;
-      status.textContent = "Abriendo tu cliente de email...";
-      status.classList.remove("hidden");
-      form.reset();
+      const data = {
+        firstName: formData.get("firstName"),
+        lastName: formData.get("lastName"),
+        email: formData.get("email"),
+        phone: formData.get("phone") || "",
+        message: formData.get("comments"),
+      };
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          status.textContent = "¡Mensaje enviado! Nos pondremos en contacto pronto.";
+          status.className = "text-sm text-green-600 dark:text-green-400";
+          form.reset();
+        } else {
+          throw new Error("Failed");
+        }
+      } catch {
+        status.textContent = "Algo salió mal. Por favor intentá de nuevo o escribinos directamente.";
+        status.className = "text-sm text-red-500";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Enviar mensaje →";
+        status.classList.remove("hidden");
+      }
     });
   }
   initContactForm();
